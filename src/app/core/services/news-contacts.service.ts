@@ -1,52 +1,90 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpService } from "./http.service";
-import { UrlException } from "../lib/utils";
+import { 
+  Contact,
+  successContact,
+  successContacts,
+  deleted,
+  UrlException
+} from "../lib/"
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
-export class NewsContactsService {
-  constructor(private _httpApiService_: HttpService) {}
+export class NewsContactsService extends HttpService {
+
+  constructor(_httpclient_:HttpClient) {
+    super(_httpclient_)
+  }
 
   public getContacts(
-    url: string = "",
     headersNeeded: boolean = false
-  ): Observable<any> {
+  ): Observable<successContacts> {
 
     var request: any;
-    if (url) {
-      request = this._httpApiService_.get<any>(url, headersNeeded);
+    try{
+      request = super.get<successContacts>("https://ongapi.alkemy.org/public/api/contacts/", headersNeeded);
       return request;
-    }else{
+    }catch{
+      throw new UrlException();
+    }
+    
+  }
+
+  public getContactById(
+    id:string = "",
+    headersNeeded: boolean = false
+  ): Observable<successContact> {
+
+    var request: any;
+    try{
+      request = super.get<successContact>("https://ongapi.alkemy.org/public/api/contacts/"+id, headersNeeded);
+      return request;
+    }catch{
       throw new UrlException();
     }
     
   }
 
   public createContacts(
-    url: string = "",
     headersNeeded: boolean = false,
-    body: any = {}
+    body: successContact
   ): Observable<any> {
-    if(url){
-      let request = this._httpApiService_.post<any>(url, headersNeeded, body);
+    try{
+      let request = super.post<successContact>("https://ongapi.alkemy.org/public/api/contacts/", headersNeeded, body);
       return request;
-    } else {
+    } catch {
       throw new UrlException();
     }
   }
 
   public editContact(
-    url: string = "",
+    id:string,
     headersNeeded: boolean = false,
-    body: any = {}
-  ): Observable<any> {
-    if(url) {
-      let request = this._httpApiService_.put<any>(url, headersNeeded, body);
+    body: Contact
+  ): Observable<successContact> {
+    try{
+      let request = super.put<successContact>("https://ongapi.alkemy.org/public/api/contacts/"+id, headersNeeded, body);
       return request;
-    } else {
+    } catch {
       throw new UrlException();
     }
+  }
+
+  public deleteContact(
+    id:string = "",
+    headersNeeded: boolean = false
+  ): Observable<deleted> {
+
+    var request: any;
+    try{
+      request = super.delete<deleted>("https://ongapi.alkemy.org/public/api/contacts/"+id, headersNeeded);
+      return request;
+    }catch{
+      throw new UrlException();
+    }
+    
   }
 }
