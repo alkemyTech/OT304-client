@@ -1,0 +1,32 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+.news{
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #7E9AFD;
+}
+.card img{
+    width: 50%;
+    margin: 0.5em;
+    border-radius: 20px;
+}
+.description{
+    width: 50%;
+}
+.description button{
+    width: 100%;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    background-color: #0038FF;
+}
