@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "base-ong-angular-client"
+  "defaultProject": "base-ong-angular-client",
+  "cli": {
+    "analytics": false
+  }
 }
