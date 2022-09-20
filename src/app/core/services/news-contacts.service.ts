@@ -7,13 +7,14 @@ import {
   successContacts,
   deleted,
   UrlException
-} from "../lib/"
+} from "../lib"
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class NewsContactsService extends HttpService {
+  
 
   constructor(_httpclient_:HttpClient) {
     super(_httpclient_)

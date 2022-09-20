@@ -2,11 +2,17 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 
 const routes: Routes = [
   { 
     path: "actividades", 
-    component: ActivityFormComponent },
+    component: ActivityFormComponent 
+  },
+  {
+    path:"contacto",
+    component:MainContactComponent
+  },
   {
     path: "",
     redirectTo: "actividades",
@@ -17,6 +23,7 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
+  
 ];
 
 @NgModule({

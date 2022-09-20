@@ -8,7 +8,7 @@ export interface successContact {
 
 export interface successContacts {
   success: boolean;
-  data: Contact[];
+  data: Array<Contact[]>;
   message: string;
 }
 
