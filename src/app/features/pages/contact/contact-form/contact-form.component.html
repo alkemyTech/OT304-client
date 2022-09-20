@@ -1,17 +1,64 @@
 <div class="contenedor">
-    <form action="" class="formulario">
-        <legend>¿Tienes algo que contarnos? ¡Nos encantaria saberlo!</legend>
+    <form class="formulario" [formGroup]="contactForm" (ngSubmit)="sendData(contactForm.value)">
+        <legend class="poppins-bold">
+            <h3 class="center-text">
+                ¿Tienes algo que contarnos? ¡Nos encantaría saberlo!
+            </h3>
+        </legend>
         <div class="input-block">
-            <input type="text" class="input" placeholder="Name">
+            <div class="inp-group">
+                <input type="text" class="input poppins-bold" formControlName="name" placeholder="Nombre">
+            </div>
+            
+            <div *ngIf="contactForm.get('name')?.valid; else invalid">
+                <p class="green-text poppins-bold">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </p>
+            </div>
         </div>
+
         <div class="input-block">
-            <input type="text" class="input" placeholder="E-mail">
+            <div class="inp-group">
+                <input type="text" class="input poppins-bold" formControlName="email" placeholder="E-mail">
+            </div>
+            <div *ngIf="contactForm.get('email')?.valid; else invalid">
+                <p class="green-text poppins-bold">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </p>
+            </div>
         </div>
+
         <div class="input-block">
-            <input type="text" class="input" placeholder="Phone">
+            <div class="inp-group">
+                <input type="text" class="input poppins-bold" formControlName="phone" placeholder="Teléfono">
+            </div>
+            <div *ngIf="phone?.valid; else invalid">
+                <p class="green-text poppins-bold">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </p>
+            </div>
         </div>
+
         <div class="input-block">
-            <textarea class="text-area" placeholder="Message" cols="30" rows="5" ></textarea>
+            <div class="inp-group">
+                <textarea class="text-area poppins-bold" formControlName="message" placeholder="Mensaje" cols="30" rows="5">
+                </textarea>
+            </div>
+            <div *ngIf="contactForm.get('message')?.valid; else invalid">
+                <p class="green-text poppins-bold">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </p>
+            </div>
+        </div>
+
+        <div class="button-block">
+            <button class="btn-submit poppins-bold" type="submit" [disabled]="!contactForm.valid">Enviar datos</button>
         </div>
     </form>
 </div>
+
+<ng-template #invalid>
+    <p class="red-text poppins-bold">
+        <fa-icon [icon]="faInfoCircle" ></fa-icon>
+    </p>
+</ng-template>
