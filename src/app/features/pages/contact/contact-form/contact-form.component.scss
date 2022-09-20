@@ -3,43 +3,118 @@ $color-azul:#9AC9FB;
 $color-rojo:#DB5752;
 $color-blanco:white;
 $color-negro:black;
+$color-gris: grey;
+$transition-time: .25s;
 $color-transparente:transparent;
 
 .contenedor{
-    background-color: $color-rojo;
-    max-width: 300px;
+    background-color: $color-blanco;
+    border-radius:  5px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    box-shadow: 10px 10px 10px black;
 
     .formulario{
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 100%;
+        legend{
+            color: $color-azul;
+        }
+        
         .input-block{
 
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
             padding: 10px;
             min-width: 90%;
             background: $color-transparente;
             margin-bottom: 10px;  
             
-            .input{
+            .inp-group{
+                display: flex;
+                flex-direction: row;
+                .input{
+                    outline: none;
+                    z-index: 100;
+                    padding: 5px;
+                    width: 100%;
+                    border: none;
+                    border-bottom: 2px solid $color-negro;
+                    font-size: 15px;
+                    transition: ease-in-out all $transition-time;
+                }
+                .input:focus{
+                    transition: ease-in-out all $transition-time;
+                    border-bottom: 2px solid $color-rojo;
+                }
+                .text-area{
+                    outline: none;
+                    font-size: 15px;
+                    resize: none;
+                    border: none;
+                    border-radius: 5px;
+                    border: 2px solid $color-negro;
+                    transition: linear all $transition-time;
+                }
+                .text-area:focus{
+                    transition: linear all $transition-time;
+                    border: 2px solid $color-rojo;
+                }
+
+                .info-icon{
+                    cursor: pointer;
+                    background-color: $color-amarillo;
+                    color: $color-amarillo;
+                    width: 5px;
+                    z-index: 300;
+                    top: 0px;
+                    height: 5px;
+                    right: 0;
+                }
+            }
+            
+        }
+        .button-block{
+            padding: 5px;
+            .btn-submit{
+                border: none;
                 outline: none;
+                border-radius: 7px;
                 font-size: 15px;
-                padding: 5px;
-                border: none;
-                border-radius: 5px;
+                background: $color-azul;
+                color: $color-gris;
             }
-            .text-area{
-                outline: none;
-                resize: none;
-                border: none;
-                border-radius: 5px;
+            
+            .btn-submit:enabled{
+                background: $color-azul;
+                color: $color-negro;
+                transition: ease-in all $transition-time;
             }
+            .btn-submit:hover{
+                color: $color-azul;
+                background-color: $color-negro;
+                transition: ease-in all $transition-time;
+            }
+            .btn-submit:disabled:hover{
+                background: $color-azul;
+                color: $color-gris;
+                transition: ease-in all $transition-time;
+            }
+            .btn-submit:disabled{
+                color: $color-gris;
+                transition: ease-in all $transition-time;
+            }
+            
         }
     }
+}
+
+.red-text{
+    color:$color-rojo;
 }
