@@ -35,8 +35,18 @@ export class ContactFormComponent implements OnInit {
     console.log(values)
   }
   
+  //form control getters
   get phone(){
     return this.contactForm.get("phone");
+  }
+  get email(){
+    return this.contactForm.get("email");
+  }
+  get name(){
+    return this.contactForm.get("name");
+  }
+  get message(){
+    return this.contactForm.get("message");
   }
   //Validates if input value is a number
   isNumber(control:AbstractControl):ValidationErrors|null{
