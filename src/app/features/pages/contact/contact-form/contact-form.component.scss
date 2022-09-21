@@ -10,7 +10,7 @@ $color-transparente:transparent;
 .contenedor{
     background-color: $color-blanco;
     border-radius:  5px;
-    max-width: 350px;
+    max-width: 733px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,8 @@ $color-transparente:transparent;
         width: 100%;
         height: 100%;
         legend{
-            color: $color-azul;
+            font-size: 48px;
+            margin-bottom: 32px;
         }
         
         .input-block{
