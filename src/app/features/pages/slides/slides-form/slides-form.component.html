@@ -1,10 +1,10 @@
-<div class="title">
+<!--<div class="title">
     <h2>Nuestro staff</h2>
     <h4>Ver todos</h4>
 </div>
 <ul class="slider">
     <li>
-        <img src="../../../../../assets/image/staff/Marco Fernandez.jpg" alt="">
+        <img src="" alt="">
         <div class="description">
             <h1>Lucrecia Roldan</h1>
             <h4>CoFounder</h4>
@@ -27,3 +27,42 @@
         </div>
     </li>
 </ul>
+
+    <div *ngFor="let inf of info">
+        <h2>{{inf.name}}</h2>
+        <img src="{{inf.image}}" alt="">
+        <p>{{inf.description}}</p>
+    </div>
+
+<div class="carousel">
+   <div class="btn">
+        <i class="fa fa-chevron-circle-left" ></i>
+        <i class="fa fa-chevron-circle-right" ></i>
+   </div>
+    <div class="grande">
+        <div class="card"*ngFor="let info of info">
+            <h1>{{info.name}}</h1>
+            <img src="{{info.image}}" alt="">
+            <p>{{info.description}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="carousel">
+    <div class="carousel__btns">
+        <i class="fa fa-chevron-circle-left"(click)="setNext()" ></i>
+        <i class="fa fa-chevron-circle-right" ></i>
+   </div>
+   <div class="carousel__content">
+    <ng-container *ngFor="let info of info">
+        <div class="carousel__content-item">
+            <h1>{{info.name}}</h1>
+            <img src="{{info.image}}" alt="">
+            <p>{{info.description}}</p>
+        </div>
+    </ng-container>
+</div>
+</div>
+-->
+<app-carousel [info]="datosSlides" [autoSlides]="true"></app-carousel>

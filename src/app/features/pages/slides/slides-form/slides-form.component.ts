@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SlidesServiceService } from 'src/app/core/services/slides-service.service';
+
+
 
 @Component({
   selector: 'app-slides-form',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slides-form.component.scss']
 })
 export class SlidesFormComponent implements OnInit {
-
-  constructor() { }
-
+  datosSlides:any
+  currentPosition=0;
+  
+  constructor(private service:SlidesServiceService) { }
+  
   ngOnInit(): void {
+    this.imagenes();
   }
+
+  imagenes(){
+    this.service.traerSlides().subscribe(datos =>{
+      this.datosSlides=datos.data;
+    })
+  
+  }
+
 
 }
