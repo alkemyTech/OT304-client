@@ -1,19 +1,19 @@
 <div class="contenedor">
     <form class="formulario" [formGroup]="contactForm" (ngSubmit)="sendData(contactForm.value)">
-        <legend class="poppins-bold">
-            <h3 class="center-text">
-                ¿Tienes algo que contarnos? ¡Nos encantaría saberlo!
-            </h3>
+        <legend class="poppins-bold black-text">
+                ¡Contáctate con nosotros!
         </legend>
         <div class="input-block">
             <div class="inp-group">
+                <input matInput type="text">
                 <input type="text" class="input poppins-bold" formControlName="name" placeholder="Nombre">
             </div>
             
-            <div *ngIf="contactForm.get('name')?.valid; else invalid">
+            <div *ngIf="name?.valid; else invalid">
                 <p class="green-text poppins-bold">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
+                
             </div>
         </div>
 
@@ -21,7 +21,7 @@
             <div class="inp-group">
                 <input type="text" class="input poppins-bold" formControlName="email" placeholder="E-mail">
             </div>
-            <div *ngIf="contactForm.get('email')?.valid; else invalid">
+            <div *ngIf="email?.valid; else invalid">
                 <p class="green-text poppins-bold">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
@@ -44,7 +44,7 @@
                 <textarea class="text-area poppins-bold" formControlName="message" placeholder="Mensaje" cols="30" rows="5">
                 </textarea>
             </div>
-            <div *ngIf="contactForm.get('message')?.valid; else invalid">
+            <div *ngIf="message?.valid; else invalid">
                 <p class="green-text poppins-bold">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
@@ -61,4 +61,6 @@
     <p class="red-text poppins-bold">
         <fa-icon [icon]="faInfoCircle" ></fa-icon>
     </p>
+    <p>El campo es requerido</p>
+    <p>{{phone?.errors?.isNumber}}</p>
 </ng-template>
