@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
+import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 
 const routes: Routes = [
   { 
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:"contacto",
     component:MainContactComponent
+  },
+  {
+    path:'testimonios',
+    component: TestimonialFormComponent
   },
   {
     path: "",

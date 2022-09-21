@@ -14,6 +14,8 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -37,9 +39,9 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule,CKEditorModule,ReactiveFormsModule],
   providers:[
     {
       provide:HTTP_INTERCEPTORS,

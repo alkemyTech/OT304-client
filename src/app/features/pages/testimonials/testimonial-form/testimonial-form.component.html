@@ -1,1 +1,32 @@
-<p>testimonial-form works!</p>
+<div class="contenedor">
+    
+    <h1 *ngIf="create ; else elseBlock">Cree su testimonio</h1>
+    <ng-template #elseBlock> <h1> Edite su testimonio </h1> </ng-template>
+    <div class="formulario">
+        <form [formGroup]="formGroup" (ngSubmit)="createOrEdit()">
+
+            <label for="name">Su nombre:</label>
+            <input type="text" formControlName="name"/>
+
+            <!-- <div *ngIf="submitted && f.fullname.errors">
+                <div *ngIf="f.fullname.errors.required">Fullname is required</div>
+            </div> -->
+
+            <label for="description">Descripción del testimonio :</label>
+            <ckeditor data="<p>Hello, world!</p>" formControlName="description"></ckeditor>
+
+            <label for="image">Foto suya:</label>
+            <input type="file" formControlName="image" (change)="fileOnChange($event)" /> 
+        
+
+            <button *ngIf="create; else editBlock" type="submit">Crear</button>
+            <ng-template #editBlock>
+
+                <button type="submit">Editar</button>
+            </ng-template>
+        </form>
+    </div>
+</div>
+
+
+
