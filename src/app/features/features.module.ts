@@ -29,7 +29,6 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     UserFormComponent,
     HomeComponent,
     CarouselComponent,
-
     ContactFormComponent,
     MainContactComponent,
   ],

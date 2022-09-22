@@ -11,6 +11,13 @@ const routes: Routes = [
     component: ActivityFormComponent 
   },
   {
+    path: "backoffice",
+    loadChildren: () =>
+      import("./pages/backoffice/backoffice.module").then(
+        (m) => m.BackofficeModule
+      ),
+  },
+  {
     path:"contacto",
     component:MainContactComponent
   },
