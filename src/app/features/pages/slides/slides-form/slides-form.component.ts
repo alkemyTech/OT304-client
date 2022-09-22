@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlidesServiceService } from 'src/app/core/services/slides-service.service';
-
-
+import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
   selector: 'app-slides-form',
@@ -12,18 +10,18 @@ export class SlidesFormComponent implements OnInit {
   datosSlides:any
   currentPosition=0;
   
-  constructor(private service:SlidesServiceService) { }
+  constructor(private api:HttpService) { }
   
   ngOnInit(): void {
-    this.imagenes();
+    this.slides();
   }
 
-  imagenes(){
-    this.service.traerSlides().subscribe(datos =>{
-      this.datosSlides=datos.data;
+  slides(){
+    this.api.get('https://ongapi.alkemy.org/public/api/slides',false).subscribe(datos =>{
+      this.datosSlides=datos;
+      this.datosSlides=this.datosSlides.data;
     })
   
   }
-
 
 }
