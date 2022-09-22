@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsContactsService } from 'src/app/core/services/news-contacts.service';
 
 @Component({
   selector: 'app-activity-form',
@@ -8,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ActivityFormComponent implements OnInit {
   title = 'base-ong-angular-client';
 
-  constructor() { }
+  constructor(private contactService:NewsContactsService) { 
+    // this.contactService.getContacts(true).subscribe((response)=>{
+    //   console.log(response.data);
+    // },(error)=>{
+    //   console.log(error)
+    // })
+  }
 
   ngOnInit(): void {
   }
