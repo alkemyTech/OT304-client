@@ -1,66 +1,75 @@
 <div class="contenedor">
     <form class="formulario" [formGroup]="contactForm" (ngSubmit)="sendData(contactForm.value)">
         <legend class="poppins-bold black-text">
-                ¡Contáctate con nosotros!
+            ¡Contáctate con nosotros!
         </legend>
         <div class="input-block">
             <div class="inp-group">
-                <input matInput type="text">
-                <input type="text" class="input poppins-bold" formControlName="name" placeholder="Nombre">
-            </div>
-            
-            <div *ngIf="name?.valid; else invalid">
-                <p class="green-text poppins-bold">
+                <mat-form-field appearance="outline" class="poppins-bold input">
+
+                    <mat-label>Nombre y apellidos</mat-label>
+
+                    <input matNativeControl formControlName="name" type="text" class="poppins-bold " />
+                </mat-form-field>
+
+                <p class="green-text poppins-bold" *ngIf="name?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
-                
+
             </div>
         </div>
 
         <div class="input-block">
             <div class="inp-group">
-                <input type="text" class="input poppins-bold" formControlName="email" placeholder="E-mail">
-            </div>
-            <div *ngIf="email?.valid; else invalid">
-                <p class="green-text poppins-bold">
-                    <fa-icon [icon]="faCheck"></fa-icon>
-                </p>
-            </div>
-        </div>
+                <mat-form-field appearance="outline" class="poppins-bold input">
 
-        <div class="input-block">
-            <div class="inp-group">
-                <input type="text" class="input poppins-bold" formControlName="phone" placeholder="Teléfono">
-            </div>
-            <div *ngIf="phone?.valid; else invalid">
-                <p class="green-text poppins-bold">
+                    <mat-label>Correo electrónico</mat-label>
+
+                    <input matNativeControl formControlName="email" type="text" class="poppins-bold " />
+                </mat-form-field>
+                <p class="green-text poppins-bold" *ngIf="email?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
             </div>
         </div>
 
         <div class="input-block">
+
             <div class="inp-group">
-                <textarea class="text-area poppins-bold" formControlName="message" placeholder="Mensaje" cols="30" rows="5">
-                </textarea>
+                <mat-form-field appearance="outline" class="input poppins-bold">
+                    <mat-label>Teléfono</mat-label>
+                    <input matNativeControl class="input poppins-bold" formControlName="phone" />
+                </mat-form-field>
+                <p class="green-text poppins-bold" *ngIf="phone?.valid; else invalid">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </p>
             </div>
-            <div *ngIf="message?.valid; else invalid">
-                <p class="green-text poppins-bold">
+        </div>
+
+        <div class="input-block">
+            <div class="inp-group">
+                <mat-form-field appearance="outline" class="input poppins-bold">
+                    <mat-label>Escribe tu consulta...</mat-label>
+                    <textarea matNativeControl formControlName="message" rows="12" class="input poppins-bold">
+                    </textarea>
+                </mat-form-field>
+                <p class="green-text poppins-bold" *ngIf="message?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
             </div>
         </div>
 
         <div class="button-block">
-            <button class="btn-submit poppins-bold" type="submit" [disabled]="!contactForm.valid">Enviar datos</button>
+            <div class="btn-group">
+                <button class="btn poppins-bold" mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Enviar datos</button>
+                <button class="btn poppins-bold" mat-raised-button type="submit">Volver al inicio</button>
+            </div>
         </div>
     </form>
 </div>
 
 <ng-template #invalid>
     <p class="red-text poppins-bold">
-        <fa-icon [icon]="faInfoCircle" ></fa-icon>
+        <fa-icon [icon]="faInfoCircle"></fa-icon>
     </p>
-    <p>El campo es requerido</p>
-    <p>{{phone?.errors?.isNumber}}</p>
 </ng-template>
