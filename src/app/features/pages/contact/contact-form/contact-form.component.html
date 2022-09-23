@@ -4,33 +4,33 @@
             ¡Contáctate con nosotros!
         </legend>
         <div class="input-block">
+
             <div class="inp-group">
                 <mat-form-field appearance="outline" class="poppins-bold input">
-
                     <mat-label>Nombre y apellidos</mat-label>
-
                     <input matNativeControl formControlName="name" type="text" class="poppins-bold " />
                 </mat-form-field>
 
                 <p class="green-text poppins-bold" *ngIf="name?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
-
             </div>
+
         </div>
 
         <div class="input-block">
+
             <div class="inp-group">
                 <mat-form-field appearance="outline" class="poppins-bold input">
-
                     <mat-label>Correo electrónico</mat-label>
-
                     <input matNativeControl formControlName="email" type="text" class="poppins-bold " />
                 </mat-form-field>
+
                 <p class="green-text poppins-bold" *ngIf="email?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
             </div>
+
         </div>
 
         <div class="input-block">
@@ -44,26 +44,32 @@
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
             </div>
+
         </div>
 
         <div class="input-block">
+
             <div class="inp-group">
                 <mat-form-field appearance="outline" class="input poppins-bold">
                     <mat-label>Escribe tu consulta...</mat-label>
                     <textarea matNativeControl formControlName="message" rows="12" class="input poppins-bold">
                     </textarea>
                 </mat-form-field>
+
                 <p class="green-text poppins-bold" *ngIf="message?.valid; else invalid">
                     <fa-icon [icon]="faCheck"></fa-icon>
                 </p>
             </div>
+
         </div>
 
         <div class="button-block">
+
             <div class="btn-group">
                 <button class="btn poppins-bold" mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Enviar datos</button>
                 <button class="btn poppins-bold" mat-raised-button type="submit">Volver al inicio</button>
             </div>
+            
         </div>
     </form>
 </div>
