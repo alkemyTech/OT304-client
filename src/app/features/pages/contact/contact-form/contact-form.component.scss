@@ -1,3 +1,5 @@
+
+
 $color-amarillo:#FAFA88;
 $color-azul:#9AC9FB;
 $color-rojo:#DB5752;
@@ -22,9 +24,12 @@ $color-transparente:transparent;
         flex-direction: column;
         width: 100%;
         height: 100%;
+        align-items: center;
+        justify-content: center;
         legend{
             font-size: 48px;
             margin-bottom: 32px;
+            text-align: center;
         }
         
         .input-block{
@@ -32,84 +37,44 @@ $color-transparente:transparent;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            padding: 10px;
+            padding: 5px;
             min-width: 90%;
             background: $color-transparente;
-            margin-bottom: 10px;  
             
             .inp-group{
                 display: flex;
                 flex-direction: row;
+                align-items: center;
+                justify-content: center;
                 .input{
-                    outline: none;
-                    z-index: 100;
-                    padding: 5px;
-                    width: 100%;
-                    border: none;
-                    border-bottom: 2px solid $color-negro;
-                    font-size: 15px;
-                    transition: ease-in-out all $transition-time;
-                }
-                .input:focus{
-                    transition: ease-in-out all $transition-time;
-                    border-bottom: 2px solid $color-rojo;
-                }
-                .text-area{
-                    outline: none;
-                    font-size: 15px;
+                    width: 90%;
+                    margin-right: 10px;
                     resize: none;
-                    border: none;
-                    border-radius: 5px;
-                    border: 2px solid $color-negro;
-                    transition: linear all $transition-time;
-                }
-                .text-area:focus{
-                    transition: linear all $transition-time;
-                    border: 2px solid $color-rojo;
-                }
-
-                .info-icon{
-                    cursor: pointer;
-                    background-color: $color-amarillo;
-                    color: $color-amarillo;
-                    width: 5px;
-                    z-index: 300;
-                    top: 0px;
-                    height: 5px;
-                    right: 0;
                 }
             }
             
         }
         .button-block{
-            padding: 5px;
-            .btn-submit{
-                border: none;
-                outline: none;
-                border-radius: 7px;
-                font-size: 15px;
-                background: $color-azul;
-                color: $color-gris;
-            }
-            
-            .btn-submit:enabled{
-                background: $color-azul;
-                color: $color-negro;
-                transition: ease-in all $transition-time;
-            }
-            .btn-submit:hover{
-                color: $color-azul;
-                background-color: $color-negro;
-                transition: ease-in all $transition-time;
-            }
-            .btn-submit:disabled:hover{
-                background: $color-azul;
-                color: $color-gris;
-                transition: ease-in all $transition-time;
-            }
-            .btn-submit:disabled{
-                color: $color-gris;
-                transition: ease-in all $transition-time;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            min-width: 85%;
+
+            .btn-group{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 80%;
+
+                .btn{
+                    width: 40%;
+                    border-radius: 10px;
+                    margin-bottom: 15px;
+                }
             }
             
         }
