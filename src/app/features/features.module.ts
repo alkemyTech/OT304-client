@@ -20,6 +20,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule,ReactiveFormsModule, FontAwesomeModule, MaterialModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule,ReactiveFormsModule, FontAwesomeModule, MaterialModule,SharedModule],
   providers:[
     {
       provide:HTTP_INTERCEPTORS,
