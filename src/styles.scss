@@ -3,6 +3,7 @@ $color-verde:rgb(5, 194, 5);
 .poppins-bold{
     font-family: 'Dancing Script', cursive;
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 .center-text{
@@ -15,6 +16,9 @@ $color-verde:rgb(5, 194, 5);
 
 .green-text{
     color: $color-verde;
+}
+.green-bg{
+    background-color: $color-verde;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Dancing Script', cursive; font-family: Poppins, sans-serif; }
