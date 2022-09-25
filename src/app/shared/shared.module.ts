@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadTitleComponent } from './head-title/head-title.component';
+import { FooterComponent } from './footer/footer.component'
+import { NavbarComponent } from './navbar/navbar.component';
+import { MaterialModule } from '../material.module';
 
 
 
 @NgModule({
   declarations: [
-    HeadTitleComponent
+    HeadTitleComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports:[
-    HeadTitleComponent
+    HeadTitleComponent,
+    FooterComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }
