@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { MaterialModule } from "./material.module";
+import { MaterialModule } from "../material.module";
 
 
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
