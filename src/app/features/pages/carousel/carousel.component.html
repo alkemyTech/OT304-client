@@ -1,0 +1,20 @@
+<div class="carousel">
+    <div class="card"*ngFor="let info of info; let i=index"
+        [ngClass]="{'card-active':selectedIndex===i}">
+           <div class="contenido">
+                <h1>{{info.name}}</h1>
+                <img src="{{info.image}}" alt="">
+                <p>{{info.description}}</p>
+           </div>
+    </div>
+    <div class="btn-carousel btn-back">
+        <i class="fa-solid fa-circle-chevron-left icon-carousel icon-back"
+            (click)="back()"
+        ></i>
+    </div>
+    <div class="btn-carousel btn-next">
+        <i class="fa-solid fa-circle-chevron-right icon-carousel icon-next"
+            (click)="next()"
+        ></i>
+    </div>   
+</div>
