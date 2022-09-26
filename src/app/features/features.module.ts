@@ -11,6 +11,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
+import { CarouselComponent } from './pages/carousel/carousel.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
@@ -27,6 +28,7 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     TestimonialFormComponent,
     UserFormComponent,
     HomeComponent,
+    CarouselComponent,
     ContactFormComponent,
     MainContactComponent,
   ],
