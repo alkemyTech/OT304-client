@@ -305,6 +305,11 @@ cursor: pointer;
     color: white;
     font-weight: 600;
 }
+.btn-cancelar{
+    background: #ff5100;
+    color: white;
+    font-weight: 600;
+}
 .d-flex{
     display: flex;
     align-items: center;
@@ -312,6 +317,9 @@ cursor: pointer;
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;
+}
+.col{
+    width: 100%;
 }
 .col-md-4{
     width: 33.33%;
