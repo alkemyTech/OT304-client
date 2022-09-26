@@ -23,10 +23,6 @@ const routes: Routes = [
     component:MainContactComponent
   },
   {
-    path:'testimonios',
-    component: TestimonialFormComponent
-  },
-  {
     path: "",
     redirectTo: "home",
     pathMatch: "full",

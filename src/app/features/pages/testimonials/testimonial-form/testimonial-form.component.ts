@@ -47,15 +47,6 @@ export class TestimonialFormComponent implements OnInit {
   analizeObject(){
 
     if(this.obj){
-      console.log(this.obj);
-      // this.formGroup.controls.name = this.obj.name;
-      // this.formGroup.controls.description = this.obj.description;
-      // this.formGroup.controls.image = this.obj.image;
-
-      // this.formGroup.setControl('name',this.obj.name);
-      // this.formGroup.setControl('description',this.obj.description);
-      // this.formGroup.setControl('image',this.obj.image);
-      
 
       this.create = false;
       return;
@@ -67,31 +58,24 @@ export class TestimonialFormComponent implements OnInit {
 
   createOrEdit(){
 
+    
 
     if(this.create){
-
     
-      let fecha = new Date();
-      let fechaBody = fecha.toISOString().toString()
-      
-
-    
-      this.api.post('https://ongapi.alkemy.org/public/api/testimonials',false, {
-        name: "testNAME",
-        description:"description",
-        image: this.imgBase64,
-        created_at: fechaBody,
-        updated_at: fechaBody,
-        deleted_at:null
+      this.api.post('https://ongapi.alkemy.org/api/testimonials',true, {
+        name: this.formGroup.get('name')?.value,
+        description:this.formGroup.get('description')?.value,
+        image: this.imgBase64
       })
-      .subscribe((res : any )=>{
-        console.log('post:', res)
+      .subscribe((res : any)=>{
+        console.log('post:', res);
+        
       });
-
+    
       return;
     }
 
-    this.api.put(`https://ongapi.alkemy.org/public/api/testimonials/${this.obj.id}`,false, {
+    this.api.put(`https://ongapi.alkemy.org/api/testimonials/${this.obj.id}`,false, {
       name: this.formGroup.get('name')?.value,
       description:this.formGroup.get('description')?.value,
       image: this.imgBase64,
