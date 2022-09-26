@@ -11,6 +11,12 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { HomeComponent } from './pages/home/home.component';
+import { CarouselComponent } from './pages/carousel/carousel.component';
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
+import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +28,10 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    HomeComponent,
+    CarouselComponent,
+    ContactFormComponent,
+    MainContactComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -35,5 +45,12 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
     RouterModule
   ],
   imports: [CommonModule, AppRoutingModule, RouterModule,ReactiveFormsModule],
+  providers:[
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:HeaderInterceptor,
+      multi:true
+    }
+  ]
 })
 export class FeaturesModule {}

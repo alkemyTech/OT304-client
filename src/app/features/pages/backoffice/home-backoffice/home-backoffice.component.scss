@@ -1,0 +1,22 @@
+.container{
+    margin: 0 3em;
+}
+form{
+    width: max-content;
+    padding: 0.7em;
+    justify-content: center;
+    border: 1px solid #FF0000;
+    border-radius: 0.5em;
+    background-color:  #FF00001a;
+}
+label{
+    display: block;
+    margin: 0.5em 0;
+}
+button{
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color:#FF0000;
+    border: none;
+    color: #fff;
+}
