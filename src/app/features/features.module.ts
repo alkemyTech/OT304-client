@@ -12,7 +12,8 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { EditComponent } from './pages/backoffice/organization/edit/edit.component';
 import { CKEditorModule } from "ckeditor4-angular";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
+import { SanitizeHtmlPipe } from './pages/backoffice/pipes/sanitize-html.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    EditComponent,
+    EditComponent, 
+    SanitizeHtmlPipe,
   ],
   exports: [
     ActivityFormComponent,
