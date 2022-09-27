@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeadTitleComponent implements OnInit {
 
   @Input() title!:string;
+  @Input() alignTextCenter!:boolean;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
 
+ 
 }
