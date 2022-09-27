@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
+import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 
 const routes: Routes = [
   { 
