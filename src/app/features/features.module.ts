@@ -19,6 +19,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
+import { CarouselComponent } from './pages/carousel/carousel.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
 import { SharedModule } from "../shared/shared.module";
@@ -35,6 +36,7 @@ import { SharedModule } from "../shared/shared.module";
     TestimonialFormComponent,
     UserFormComponent,
     HomeComponent,
+    CarouselComponent,
     ContactFormComponent,
     MainContactComponent,
   ],
