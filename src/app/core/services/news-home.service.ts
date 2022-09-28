@@ -14,31 +14,21 @@ export class NewsHomeService extends HttpService{
   }
 
   public getSlides():Observable<any>{
-    let request:any;
-    request=super.get<any>('https://ongapi.alkemy.org/public/api/slides',false);
-    return request;
+    return super.get<any>('https://ongapi.alkemy.org/public/api/slides',false);
   }
    
   public getSlidesById(id:number): Observable<any>{
-    let request:any;
-    request=super.get<any>('https://ongapi.alkemy.org/public/api/slides/'+id,false);
-    return request;
+    return super.get<any>('https://ongapi.alkemy.org/public/api/slides/'+id,false);
   }
 
   public createSlides(body:Slides):Observable<any>{
-    let request:any;
-    request=super.post<any>('https://ongapi.alkemy.org/public/api/slides/',false,body);
-    return request;
+    return super.post<any>('https://ongapi.alkemy.org/public/api/slides/',false,body);
   }
   
   public editSlides(id:number,body:Slides):Observable<any>{
-    let request:any;
-    request=super.put<any>('https://ongapi.alkemy.org/public/api/slides/'+id,false,body);
-    return request;
+    return super.put<any>('https://ongapi.alkemy.org/public/api/slides/'+id,false,body);
   }
   public deleteSlides(id:number):Observable<any>{
-    let request:any;
-    request=super.delete<any>('https://ongapi.alkemy.org/public/api/slides/'+id, false)
-    return request;
+    return super.delete<any>('https://ongapi.alkemy.org/public/api/slides/'+id, false)
   }
 }
