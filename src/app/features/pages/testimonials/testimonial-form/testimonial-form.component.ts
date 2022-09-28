@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-testimonial-form',
@@ -62,7 +63,7 @@ export class TestimonialFormComponent implements OnInit {
 
     if(this.create){
     
-      this.api.post('https://ongapi.alkemy.org/api/testimonials',true, {
+      this.api.post(environment.TESTIMONIALS,true, {
         name: this.formGroup.get('name')?.value,
         description:this.formGroup.get('description')?.value,
         image: this.imgBase64
@@ -75,7 +76,7 @@ export class TestimonialFormComponent implements OnInit {
       return;
     }
 
-    this.api.put(`https://ongapi.alkemy.org/api/testimonials/${this.obj.id}`,false, {
+    this.api.put( environment.TESTIMONIALS + '/' + this.obj.id,false, {
       name: this.formGroup.get('name')?.value,
       description:this.formGroup.get('description')?.value,
       image: this.imgBase64,
