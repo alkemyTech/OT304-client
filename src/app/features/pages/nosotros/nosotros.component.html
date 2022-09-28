@@ -1,0 +1,18 @@
+<h1 class="text-center">Nuestro Staff!</h1>
+<div class="row justify-content-center">
+<div *ngFor="let member of data" class="cols-sm-6 card resize p-0 rounded-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src={{member.image}} class="img-fluid rounded-3" alt="200px">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{member.name}}</h5>
+          <p [innerHtml] = "member.description" class="card-text"><p>
+          <p class="card-text">Facebook: {{member.facebookUrl}}<p>
+          <p class="card-text">Linkedin: {{member.linkedinUrl}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

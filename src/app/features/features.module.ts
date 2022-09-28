@@ -16,7 +16,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     CarouselComponent,
     ContactFormComponent,
     MainContactComponent,
+    NosotrosComponent,
   ],
   exports: [
     ActivityFormComponent,
