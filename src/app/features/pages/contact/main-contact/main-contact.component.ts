@@ -7,8 +7,10 @@ import { Title } from '@angular/platform-browser'
   styleUrls: ['./main-contact.component.scss']
 })
 export class MainContactComponent implements OnInit {
+  head_title:string;
 
   constructor(private title:Title) {
+    this.head_title = "¿Quieres contribuir?"
     title.setTitle("Contáctanos");
   }
 
