@@ -1,45 +1,87 @@
+
+
 $color-amarillo:#FAFA88;
 $color-azul:#9AC9FB;
 $color-rojo:#DB5752;
 $color-blanco:white;
 $color-negro:black;
+$color-gris: grey;
+$transition-time: .25s;
 $color-transparente:transparent;
 
 .contenedor{
-    background-color: $color-rojo;
-    max-width: 300px;
+    background-color: $color-blanco;
+    border-radius:  5px;
+    max-width: 733px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
+    // box-shadow: 10px 10px 10px black;
 
     .formulario{
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 100%;
+        align-items: center;
+        justify-content: center;
+        legend{
+            font-size: 48px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
         .input-block{
 
             display: flex;
             flex-direction: column;
-            padding: 10px;
+            box-sizing: border-box;
+            padding: 5px;
             min-width: 90%;
             background: $color-transparente;
-            margin-bottom: 10px;  
             
-            .input{
-                outline: none;
-                font-size: 15px;
-                padding: 5px;
-                border: none;
-                border-radius: 5px;
+            .inp-group{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                .input{
+                    width: 90%;
+                    margin-right: 10px;
+                    resize: none;
+                }
             }
-            .text-area{
-                outline: none;
-                resize: none;
-                border: none;
-                border-radius: 5px;
+            
+        }
+        .button-block{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            min-width: 85%;
+
+            .btn-group{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 80%;
+
+                
             }
+            
         }
     }
+}
+
+.red-text{
+    color:$color-rojo;
+}
+
+.btn{
+    border-radius: 10px;
+    margin-right: 15px;
 }

@@ -1,0 +1,86 @@
+$color-transparente: transparent;
+$transition-time:.1s;
+$color-gris: rgb(217, 217, 217);
+.nav-layer {
+  background-color: $color-transparente;
+  height: 100px;
+  min-width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 1px 10px black;
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .nav-logo {
+      background-color: $color-transparente;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-list {
+      background-color: $color-transparente;
+      display: flex;
+      height: 44px;
+      flex-direction: row;
+      a {
+        list-style: none;
+        font-size: 15px;
+        text-decoration: none;
+        margin-right: 36px;
+        outline: none;
+        transition: all ease-in-out $transition-time;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      a:hover {
+        color: black;
+        text-decoration: overline;
+        transition: all ease-in-out $transition-time;
+      }
+    }
+
+    div{
+        .b {
+            border-radius: 50px;
+            outline: 1px solid black;
+            margin-right: 15px;
+            height: 44px;
+            text-align: center;
+          }
+          .login {
+            color: black;
+          }
+          .login:hover {
+            color: black;
+          }
+          .register {
+            color: white;
+            background-color: #ff0000;
+          }
+          .register:hover {
+            color: white;
+          }
+    }
+  }
+}
+
+
+.current {
+  font-weight: 600;
+  
+  li {
+    text-decoration: overline;
+    font-size: 19px;
+  }
+}
