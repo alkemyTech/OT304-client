@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -8,9 +9,11 @@ import { Observable } from "rxjs";
 export class HttpService {
   private _groupId!: string;
   private _headers!: HttpHeaders;
+  protected alkemyOngApi:string;
 
   constructor(private http: HttpClient) {
     this._headers = new HttpHeaders({ Group: this._groupId });
+    this.alkemyOngApi = environment.baseApiUrl;
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
