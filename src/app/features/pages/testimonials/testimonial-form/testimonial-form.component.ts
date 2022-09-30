@@ -63,7 +63,7 @@ export class TestimonialFormComponent implements OnInit {
 
     if(this.create){
     
-      this.api.post(environment.TESTIMONIALS,true, {
+      this.api.post(environment.API_URL + 'testimonials',true, {
         name: this.formGroup.get('name')?.value,
         description:this.formGroup.get('description')?.value,
         image: this.imgBase64
@@ -76,7 +76,7 @@ export class TestimonialFormComponent implements OnInit {
       return;
     }
 
-    this.api.put( environment.TESTIMONIALS + '/' + this.obj.id,false, {
+    this.api.put( environment.API_URL+ 'testimonials/' + this.obj.id,false, {
       name: this.formGroup.get('name')?.value,
       description:this.formGroup.get('description')?.value,
       image: this.imgBase64,
