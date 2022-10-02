@@ -9,11 +9,11 @@ import { environment } from "src/environments/environment";
 export class HttpService {
   private _groupId!: string;
   private _headers!: HttpHeaders;
-  protected alkemyOngApi:string;
+  protected baseApiUrl:string;
 
   constructor(private http: HttpClient) {
     this._headers = new HttpHeaders({ Group: this._groupId });
-    this.alkemyOngApi = environment.baseApiUrl;
+    this.baseApiUrl = environment.baseApiUrl;
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {

@@ -17,7 +17,7 @@ export class NewsContactsService extends HttpService {
   
 
   constructor(_httpclient_:HttpClient) {
-    super(_httpclient_)
+    super(_httpclient_);
   }
 
   public getContacts(
@@ -26,7 +26,7 @@ export class NewsContactsService extends HttpService {
 
     var request: any;
     try{
-      request = super.get<successContacts>(super.alkemyOngApi+"contacts/", headersNeeded);
+      request = super.get<successContacts>(this.baseApiUrl+"contacts/", headersNeeded);
       return request;
     }catch{
       throw new UrlException();
@@ -41,7 +41,7 @@ export class NewsContactsService extends HttpService {
 
     var request: any;
     try{
-      request = super.get<successContact>(super.alkemyOngApi+"contacts/"+id, headersNeeded);
+      request = super.get<successContact>(this.baseApiUrl+"contacts/"+id, headersNeeded);
       return request;
     }catch{
       throw new UrlException();
@@ -54,7 +54,7 @@ export class NewsContactsService extends HttpService {
     body: successContact
   ): Observable<any> {
     try{
-      let request = super.post<successContact>(super.alkemyOngApi+"contacts/", headersNeeded, body);
+      let request = super.post<successContact>(this.baseApiUrl+"contacts/", headersNeeded, body);
       return request;
     } catch {
       throw new UrlException();
@@ -67,7 +67,7 @@ export class NewsContactsService extends HttpService {
     body: Contact
   ): Observable<successContact> {
     try{
-      let request = super.put<successContact>(super.alkemyOngApi+"contacts/"+id, headersNeeded, body);
+      let request = super.put<successContact>(this.baseApiUrl+"contacts/"+id, headersNeeded, body);
       return request;
     } catch {
       throw new UrlException();
@@ -81,7 +81,7 @@ export class NewsContactsService extends HttpService {
 
     var request: any;
     try{
-      request = super.delete<deleted>(super.alkemyOngApi+"contacts/"+id, headersNeeded);
+      request = super.delete<deleted>(this.baseApiUrl+"contacts/"+id, headersNeeded);
       return request;
     }catch{
       throw new UrlException();
