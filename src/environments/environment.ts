@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'http://local.mode.com/',
+  baseApiUrl: 'http://local.mode.com/',,
+  API_URL:'https://ongapi.alkemy.org/api/'
 };
 
 /*
