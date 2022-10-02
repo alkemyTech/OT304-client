@@ -1,0 +1,14 @@
+<div class="snack-container">
+    <p class="text-center poppins">{{data.content}}</p>
+    <strong class="icon">
+        <ng-template [ngIf]="data.type==='success'">
+            <fa-icon [icon]="faCheck"></fa-icon>
+        </ng-template>
+        <ng-template [ngIf]="data.type==='error'">
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </ng-template>
+        <ng-template [ngIf]="data.type === 'info'">
+            <fa-icon [icon]="faInfoCircle"></fa-icon>
+        </ng-template>
+    </strong>
+</div>
