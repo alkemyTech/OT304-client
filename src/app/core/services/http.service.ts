@@ -13,7 +13,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) {
     this._headers = new HttpHeaders({ Group: this._groupId });
-    this.baseApiUrl = environment.baseApiUrl;
+    this.baseApiUrl = environment.API_URL;
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
