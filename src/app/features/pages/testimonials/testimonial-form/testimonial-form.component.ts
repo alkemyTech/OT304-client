@@ -27,6 +27,7 @@ export class TestimonialFormComponent implements OnInit {
   description : string = '';
   imgBase64 !: any;
   create : boolean = true;
+  show : boolean = false;
 
   constructor(private fb : FormBuilder, private api : HttpService) {
 
@@ -46,24 +47,21 @@ export class TestimonialFormComponent implements OnInit {
   }
 
   analizeObject(){
-
     if(this.obj){
-
       this.create = false;
-      return;
-    
     }
+  }
 
-    return;
+  
+  get f(){
+    return this.formGroup.controls;
   }
 
   createOrEdit(){
 
-    
-
     if(this.create){
     
-      this.api.post(environment.API_URL + 'testimonials',true, {
+      this.api.post(environment.API_URL + 'testimonials',false, {
         name: this.formGroup.get('name')?.value,
         description:this.formGroup.get('description')?.value,
         image: this.imgBase64
@@ -73,18 +71,27 @@ export class TestimonialFormComponent implements OnInit {
         
       });
     
-      return;
+    }else{
+
+      this.api.put( environment.API_URL+ 'testimonials/' + this.obj.id,false, {
+        name: this.formGroup.get('name')?.value,
+        description:this.formGroup.get('description')?.value,
+        image: this.imgBase64,
+      })
+      .subscribe((res : any )=>{
+        console.log('put: ', res)
+      });
     }
 
-    this.api.put( environment.API_URL+ 'testimonials/' + this.obj.id,false, {
-      name: this.formGroup.get('name')?.value,
-      description:this.formGroup.get('description')?.value,
-      image: this.imgBase64,
-    })
-    .subscribe((res : any )=>{
-      console.log('put: ', res)
-    });
-  
+    
+    this.show = !this.show;
+    setTimeout(() => {
+
+    this.show = !this.show;
+
+    }, 3000);
+
+    this.formGroup.reset();
   }
 
   fileOnChange(e: any) {
@@ -110,7 +117,6 @@ export class TestimonialFormComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.imgBase64 = reader.result?.toString();
-      console.log("IMAGEN EN BASE 64: ",this.imgBase64);
     };
   }
 
