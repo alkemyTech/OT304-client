@@ -3,5 +3,6 @@
 export const environment = {
     production: false,
     baseApiUrl: 'https://ongapi.alkemy.org/public/api/',
-    title: 'I finally know how to use an environment'
+    title: 'I finally know how to use an environment',
+    API_URL:'https://ongapi.alkemy.org/api/'
   };
