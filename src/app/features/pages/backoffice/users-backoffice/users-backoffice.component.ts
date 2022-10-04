@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./users-backoffice.component.scss']
 })
 export class UsersBackofficeComponent implements OnInit {
-
+ 
   constructor(private router: Router,) { }
-
+  info=[{name:"Juan Perez",email:"Juan@gmail.com"}]
+  
   ngOnInit(): void {
   }
+  
   create():void{
-    this.router.navigateByUrl('/backoffice/users/create');
+    this.router.navigateByUrl("backoffice/users/create");
   }
 }
