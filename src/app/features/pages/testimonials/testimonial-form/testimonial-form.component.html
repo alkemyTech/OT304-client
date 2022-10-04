@@ -28,10 +28,10 @@
             </div>
         
 
-            <button *ngIf="create; else editBlock" [ngClass]="{'btnError' : formGroup.invalid}" type="submit">Crear</button>
+            <button *ngIf="create; else editBlock" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" type="submit">Crear</button>
             <ng-template #editBlock>
 
-                <button type="submit" [ngClass]="{'btnError' : formGroup.invalid}" >Editar</button>
+                <button type="submit" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" >Editar</button>
             </ng-template>
 
             <div class="exito" *ngIf="show">
