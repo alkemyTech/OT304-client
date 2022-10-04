@@ -1,31 +1,16 @@
+
 .user{
     margin: 20px 15px;
     text-align: center;
-    button{
-        background-color: #0038FF;
-        border: none;
-        margin-top: 8px;
-        padding: 10px;
-        border-radius: 10px;
-    }
     table{
-        width: 90%;
-        border: 1px solid #7E9AFD;
-        margin-top: 10px;
-        thead{
-            font-size: larger;
-            border: 1px solid #7E9AFD;
-            background-color:#7E9AFD ;
+        width: 100%;
+        margin-top: 1em;
+        align-items: center;
+        th{
+            text-align: center;
         }
-        tbody{
-            #edit{
-                background-color: #FAFF00;
-                margin: 2px;
-            }
-            #delete{
-                background-color: #FF0000;
-                margin: 2px;
-            }
+        button{
+            margin: 0.5em;
         }
     }
 }

@@ -7,6 +7,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { TestimonialFormComponent } from "../../pages/testimonials/testimonial-form/testimonial-form.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -21,7 +23,9 @@ import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.co
     CommonModule,
     BackofficeRoutingModule,
     CKEditorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatButtonModule
   ]
 })
 export class BackofficeModule { }
