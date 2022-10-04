@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '../material.module';
 import { SnackbarcustomComponent } from './snackbarcustom/snackbarcustom.component';
+import { LeafetMapComponent } from './leafet-map/leafet-map.component';
 
 
 
@@ -15,7 +16,8 @@ import { SnackbarcustomComponent } from './snackbarcustom/snackbarcustom.compone
     HeadTitleComponent,
     FooterComponent,
     NavbarComponent,
-    SnackbarcustomComponent
+    SnackbarcustomComponent,
+    LeafetMapComponent
   ],
   //para cuando se inyectan componentes dentro de otros
   entryComponents:[
@@ -29,7 +31,9 @@ import { SnackbarcustomComponent } from './snackbarcustom/snackbarcustom.compone
   exports:[
     HeadTitleComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SnackbarcustomComponent,
+    LeafetMapComponent
   ]
 })
 export class SharedModule { }
