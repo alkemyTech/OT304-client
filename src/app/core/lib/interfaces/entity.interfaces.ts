@@ -16,3 +16,15 @@ export interface SnackInjectData{
     content:string,
     type:string
 }
+
+export interface Slides{
+    id:number|null,
+    name:string,
+    description:string,
+    image:string,
+    order:number,
+    user_id: number,
+    created_at: Date|null,
+    updated_at: Date|null,
+    delete_at:  Date|null
+}
