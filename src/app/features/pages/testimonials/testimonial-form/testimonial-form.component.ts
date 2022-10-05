@@ -1,7 +1,9 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/app/core/services/http.service';
+import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -29,7 +31,7 @@ export class TestimonialFormComponent implements OnInit {
   create : boolean = true;
   show : boolean = false;
 
-  constructor(private fb : FormBuilder, private api : HttpService) {
+  constructor(private fb : FormBuilder, private api : HttpService, private dialog:MatDialog) {
 
     this.analizeObject();
 
@@ -67,8 +69,15 @@ export class TestimonialFormComponent implements OnInit {
         image: this.imgBase64
       })
       .subscribe((res : any)=>{
-        console.log('post:', res);
         
+        if(res.error){
+
+          this.openDialog(res.error);
+
+        }else{
+
+           this.openDialog("Testimonio creado con éxito.");
+        }
       });
     
     }else{
@@ -79,7 +88,14 @@ export class TestimonialFormComponent implements OnInit {
         image: this.imgBase64,
       })
       .subscribe((res : any )=>{
-        console.log('put: ', res)
+        if(res.error){
+
+          this.openDialog(res.error);
+
+        }else{
+
+          this.openDialog("Testimonio modificado con éxito.");
+        }
       });
     }
 
@@ -118,6 +134,12 @@ export class TestimonialFormComponent implements OnInit {
     reader.onload = () => {
       this.imgBase64 = reader.result?.toString();
     };
+  }
+
+  openDialog(info :string){
+    this.dialog.open(DialogComponent,{
+      data : info
+    });
   }
 
 }
