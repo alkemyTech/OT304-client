@@ -1,1 +1,39 @@
-<p>user-form works!</p>
+<div class="contenedor">
+    <h1>Crear  Usuario </h1>
+    <h1>Editar Usuario</h1>
+    <form [formGroup]="formUser">
+        <div class="name">
+            <label for="name"> Nombre completo: </label>
+            <input type="text" name="name" formControlName="name">
+            <div *ngIf="formUser.get('name')?.touched && formUser.get('name')?.errors?.['required']">
+                Este campo es requerido
+            </div>
+            <div *ngIf="formUser.get('name')?.errors?.['minlength']">
+                El nombre debe tener mas de 4 caracteres
+            </div>
+        </div>
+        
+        <div class="email">
+            <label for="email">Email :</label>
+            <input type="email" name="email"formControlName="email">
+        </div>
+       
+        <div class="rol">
+            <label for="name"> Rol</label>
+            <select name="" id="">
+                <option value="">Seleccionar un rol</option>
+                <option value="">Administrador</option>
+                <option value="">Regular</option>
+            </select>
+        </div>
+       
+        <div class="fotoPerfil">
+            <label for="image">Foto de perfil</label>
+            <input type="file" name="image">
+    
+        </div>
+      
+
+          
+    </form>
+</div>

@@ -5,17 +5,20 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 
+
 @NgModule({
     imports:[
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatDialogModule
+        MatDialogModule,
+        MatFormFieldModule
     ],
     exports:[
         MatFormFieldModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatFormFieldModule
     ]
 })
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TestimonialFormComponent } from '../testimonials/testimonial-form/testimonial-form.component';
+import { UserFormComponent } from '../users/user-form/user-form.component';
 import { BackofficeComponent } from './backoffice.component';
 import { HomeBackofficeComponent } from './home-backoffice/home-backoffice.component';
 
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'testimonios',
     component: TestimonialFormComponent
+  },
+  {
+    path:'users/create',
+    component: UserFormComponent
   },
   {
     path:'',
