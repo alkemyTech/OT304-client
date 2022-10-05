@@ -5,10 +5,11 @@ import { BackofficeComponent } from './backoffice.component';
 import { HomeBackofficeComponent } from './home-backoffice/home-backoffice.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { TestimonialFormComponent } from "../../pages/testimonials/testimonial-form/testimonial-form.component";
-import { ReactiveFormsModule } from '@angular/forms';
 import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewsFormComponent } from '../news/news-form/news-form.component';
 
 
 
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     HomeBackofficeComponent,
     TestimonialFormComponent,
     UsersBackofficeComponent,
+    NewsFormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
     CKEditorModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ]
 })
 export class BackofficeModule { }
