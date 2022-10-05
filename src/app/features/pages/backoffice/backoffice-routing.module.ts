@@ -4,6 +4,7 @@ import { NewsFormComponent } from '../news/news-form/news-form.component';
 import { TestimonialFormComponent } from '../testimonials/testimonial-form/testimonial-form.component';
 import { BackofficeComponent } from './backoffice.component';
 import { HomeBackofficeComponent } from './home-backoffice/home-backoffice.component';
+import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'testimonios',
     component: TestimonialFormComponent
+  },
+  {
+    path:'users',
+    component:UsersBackofficeComponent
   },
   {
     path:'news',
@@ -26,6 +31,7 @@ const routes: Routes = [
     path:'**',
     component: BackofficeComponent
   }
+
 ];
 
 @NgModule({
