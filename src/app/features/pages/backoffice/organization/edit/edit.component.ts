@@ -12,41 +12,42 @@ export class EditComponent implements OnInit {
   public edit = ClassicEditor;
   public editar:boolean= false;
   public formu!: FormGroup;
-  public organizacion:any; 
+  public organizacion:any;
+  // public img:string=''; 
   constructor(private form: FormBuilder,
-              private _serviceEdit: OrganizacionEditService,
+              public _serviceEdit: OrganizacionEditService,
               ) { 
                 this.createForm();
                 // this._serviceEdit;
                 this.obtenerData()
   }
 
-  get nameValido(){
+  get nameNoValido(){
     return this.formu.get('name')?.invalid && this.formu.get('name')?.touched;
   }
-  get logoValido(){
+  get logoNoValido(){
     return this.formu.get('logo')?.invalid && this.formu.get('logo')?.touched;
   }
-  get shortValido(){
-    return this.formu.get('short_description')?.invalid && this.formu.get('shortDescription')?.touched;
+  get shortNoValido(){
+    return this.formu.get('short_description')?.invalid && this.formu.get('short_description')?.touched;
   }
-  get longValido(){
-    return this.formu.get('longDescription')?.invalid && this.formu.get('longDescription')?.touched;
+  get longNoValido(){
+    return this.formu.get('long_description')?.invalid && this.formu.get('long_description')?.touched;
   }
-  get telValido(){
-    return this.formu.get('redesSociales.tel')?.invalid && this.formu.get('redesSociales.tel')?.touched;
+  get phoneNoValido(){
+    return this.formu.get('phone')?.invalid && this.formu.get('phone')?.touched;
   }
-  get instagramValido(){
-    return this.formu.get('redesSociales.instagram')?.invalid && this.formu.get('redesSociales.instagram')?.touched;
+  get instagramNoValido(){
+    return this.formu.get('instagram_url')?.invalid && this.formu.get('instagram_url')?.touched;
   }
-  get facebookValido(){
-    return this.formu.get('redesSociales.facebook')?.invalid && this.formu.get('redesSociales.facebook')?.touched;
+  get facebookNoValido(){
+    return this.formu.get('facebook_url')?.invalid && this.formu.get('facebook_url')?.touched;
   }
-  get twitterValido(){
-    return this.formu.get('redesSociales.twitter')?.invalid && this.formu.get('redesSociales.twitter')?.touched;
+  get twitterNoValido(){
+    return this.formu.get('twitter_url')?.invalid && this.formu.get('twitter_url')?.touched;
   }
-  get linkedibValido(){
-    return this.formu.get('redesSociales.linkedin')?.invalid && this.formu.get('redesSociales.linkedin')?.touched;
+  get linkedinNoValido(){
+    return this.formu.get('linkedin_url')?.invalid && this.formu.get('linkedin_url')?.touched;
   }
 
   
@@ -57,16 +58,13 @@ export class EditComponent implements OnInit {
       name   :["",  [Validators.required, Validators.minLength(3)], []],
       logo   :["",  [Validators.required, ],[]],
       short_description: ["", [Validators.required, Validators.minLength(10)],  []],
-      longDescription:  ["", [Validators.required, Validators.minLength(10)],  []],
-      redesSociales: this.form.group({
-        // email:["",  [Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")],  []],
-        tel:  ["",  [],  []],
-        instagram:["",  [],  []],
-        facebook: ["",  [],  []],
-        twitter: ["",  [],  []],
-        linkedin: ["",  [],  []],
-      }),
-      updated  :["",[],[]]
+      long_description:  ["", [Validators.required, Validators.minLength(10)],  []],
+      phone:  ["",  [],  []],
+      instagram_url:["",  [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')],  []],
+      facebook_url: ["",  [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')],  []],
+      twitter_url: ["",  [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')],  []],
+      linkedin_url: ["",  [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')],  []],
+      updated_at  :["",[],[]]
 
     })
   }
@@ -92,36 +90,56 @@ export class EditComponent implements OnInit {
       {
         // this.organizacion?.logo
         name: this.organizacion?.name,
-        logo: "",
+        logo: this.organizacion?.logo,
         short_description: this.organizacion?.short_description,
-        longDescription: this.organizacion?.long_description,
-        redesSociales: {
-            tel: this.organizacion?.phone,
-            instagram: this.organizacion?.instagram_url,
-            facebook: this.organizacion?.facebook_url,
-            twitter: this.organizacion?.twitter_url,
-            linkedin: this.organizacion?.linkedin_url
-        },
-        updated: fecha
+        long_description: this.organizacion?.long_description, 
+        phone: this.organizacion?.phone, 
+        instagram_url: this.organizacion?.instagram_url,
+        facebook_url: this.organizacion?.facebook_url,
+        twitter_url: this.organizacion?.twitter_url,
+        linkedin_url: this.organizacion?.linkedin_url,
+        updated_at: fecha
     }
     )
   }
   public enviar(){
-    this.editar=false;
+    console.log(this.formu.valid)
     console.log(this.formu)
-    console.log(this.formu.value)
-    let organizacion={ 
-      name: this.formu.value?.name,
-      logo: "http://ongapi.alkemy.org/storage/ZpWMC84kFg.png",
-      short_description: this.formu.value?.shortDescription,
-      long_description: this.formu.value?.longDescription,
-      phone: this.formu.value?.redesSociales.tel,
-      updated_at: "",
-      facebook_url: this.formu.value?.redesSociales.facebook,
-      linkedin_url: this.formu.value?.redesSociales.linkedin,
-      instagram_url: this.formu.value?.redesSociales.instagram,
-      twitter_url: this.formu.value?.redesSociales.twitter
+    if(this.formu.invalid){
+      return Object.values(this.formu.controls).forEach(controls=>{
+        controls.markAllAsTouched();
+      })
+    }else{
+      this.editar=false;
+      if(this._serviceEdit.img.length===0){
+        delete this.formu.value?.logo;
+        this.enviardata()
+        console.log(this.formu.value)
+      }else{
+        this.formu.value.logo=this._serviceEdit.img;
+        console.log(this.formu.value)
+        console.log('enviado')
+        this.enviardata()
+      }
+
+    }
+
   }
-  console.log(organizacion)
+
+  enviardata(){
+    this._serviceEdit.putOrganizacion(this.formu.value,1)
+    .pipe(finalize(()=>{
+      this.obtenerData();
+      this.cargarForm();
+      this._serviceEdit.img='';
+    }))
+    .subscribe((data:any)=>{
+      console.log(data.data)
+    }) 
+  }
+  cancelar(){
+    this._serviceEdit.img='';
+    this.editar=false;
+    this.cargarForm();
   }
 }
