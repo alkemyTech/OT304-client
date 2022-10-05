@@ -14,3 +14,11 @@ export class UrlException extends Exception{
         super.message;
     }
 }
+
+export class WrongDataException extends Exception{
+    constructor(message:string){
+        super("WrongDataException");
+        super.name;
+        super.message=message;
+    }
+}
