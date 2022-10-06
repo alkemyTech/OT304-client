@@ -1,5 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.notification {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    padding: 4px;
+    border-radius: 6px;
+    position: fixed;
+    z-index: 4;
+    background-color: #fff;
 
+    top: 70px;
+    right: 15px;
+}
+.datos{
+    height: 70px;
+    width: 320px;
+}
+.notification__body {
+    flex: 1;
+    display: flex;
+    margin-right: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.notification__close {
+    /* Reset */
+    background-color: transparent;
+    border-color: transparent;
+
+    /* Cursor */
+    cursor: pointer;
+
+    /* Size */
+    height: 1rem;
+    width: 1rem;
+
+    /* Used to position the inner */
+    position: relative;
+}
+
+.notification__close-line {
+    /* Background color */
+    background-color: #d1d5db;
+
+    /* Position */
+    position: absolute;
+
+    /* Size */
+    height: 1px;
+    width: 100%;
+}
+
+.notification__close-line--first {
+    /* Position */
+    left: 0px;
+    top: 50%;
+    transform: translate(0%, -50%) rotate(45deg);
+
+    /* Size */
+    height: 1px;
+    width: 100%;
+}
+
+.notification__close-line--second {
+    /* Position */
+    left: 50%;
+    top: 0px;
+    transform: translate(-50%, 0%) rotate(45deg);
+
+    /* Size */
+    height: 100%;
+    width: 1px;
+}
+.indeterminate-progress-bar {
+    /* Color */
+    background-color: #d1d5db;
+
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Size */
+    height: 0.5rem;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.indeterminate-progress-bar__progress {
+    /* Color */
+    background-color: #3bf64e;
+
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Absolute position */
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 50%;
+
+    /* Move the bar infinitely */
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: indeterminate-progress-bar;
+}
+
+@keyframes indeterminate-progress-bar {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 100%;
+    }
+}
 body{
     margin-top:20px;
     color: #1a202c;

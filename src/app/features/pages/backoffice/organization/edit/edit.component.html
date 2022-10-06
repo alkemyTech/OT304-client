@@ -1,3 +1,25 @@
+<div *ngIf="notif"class="notification fadeIn fourt">
+  <!-- Content -->
+  <div class="datos" style="display: flex;">
+    <div class="notification__body">
+      {{notifi}}
+      
+    </div>
+  
+    <!-- Close button -->
+    <button (click)="notif=false" class="notification__close">
+        <div class="notification__close-line notification__close-line--first"></div>
+        <div class="notification__close-line notification__close-line--second"></div>
+    </button>
+  </div>
+
+  <div class="indeterminate-progress-bar">
+    <div class="indeterminate-progress-bar__progress"></div>
+  </div>
+</div>
+
+
+
 <form class="container fadeIn first my-4"
       [formGroup]="formu"
       (ngSubmit)="enviar()"

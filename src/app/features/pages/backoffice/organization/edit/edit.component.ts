@@ -13,6 +13,8 @@ export class EditComponent implements OnInit {
   public editar:boolean= false;
   public formu!: FormGroup;
   public organizacion:any;
+  public notifi?: string="";
+  public notif?: boolean=false;
   // public img:string=''; 
   constructor(private form: FormBuilder,
               public _serviceEdit: OrganizacionEditService,
@@ -76,7 +78,7 @@ export class EditComponent implements OnInit {
     .subscribe({
       next: (data:any)=>{
         this.organizacion=data.data;
-        console.log(data.data)
+        // console.log(data.data)
       },
       error: (error:any)=>{
         console.log(error.message)
@@ -106,15 +108,22 @@ export class EditComponent implements OnInit {
     console.log(this.formu.valid)
     console.log(this.formu)
     if(this.formu.invalid){
+      this.notifi="Datos invalidos";
+      this.notif=true;
+      setTimeout(() => {
+        this.notif=false;
+        this.notifi="";
+      }, 2000);
       return Object.values(this.formu.controls).forEach(controls=>{
         controls.markAllAsTouched();
       })
+
     }else{
       this.editar=false;
       if(this._serviceEdit.img.length===0){
         delete this.formu.value?.logo;
         this.enviardata()
-        console.log(this.formu.value)
+        // console.log(this.formu.value)
       }else{
         this.formu.value.logo=this._serviceEdit.img;
         console.log(this.formu.value)
@@ -132,6 +141,12 @@ export class EditComponent implements OnInit {
       this.obtenerData();
       this.cargarForm();
       this._serviceEdit.img='';
+      this.notifi="Datos guardados";
+      this.notif=true;
+      setTimeout(() => {
+        this.notif=false;
+        this.notifi="";
+      }, 2000);
     }))
     .subscribe((data:any)=>{
       console.log(data.data)
