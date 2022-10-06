@@ -17,7 +17,7 @@ export class NewsContactsService extends HttpService {
   
 
   constructor(_httpclient_:HttpClient) {
-    super(_httpclient_)
+    super(_httpclient_);
   }
 
   public getContacts(
