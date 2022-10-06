@@ -28,3 +28,22 @@ export interface Slides{
     updated_at: Date|null,
     delete_at:  Date|null
 }
+
+//INTERFACE PARA EL USUARIO
+export interface User{
+    id:number;
+    name:string;
+    email:string,
+    email_verified_at:string,
+    password:string,
+    role_id:number,
+    remember_token:string,
+    created_at:string,
+    update_at:string,
+    delete_at:string,
+    group_id:number,
+    latitude:number,
+    longitude:number,
+    address:string,
+    profile_image:string
+}
