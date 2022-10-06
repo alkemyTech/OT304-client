@@ -17,17 +17,16 @@ const routes: Routes = [
     component: TestimonialFormComponent
   },
   {
-<<<<<<< HEAD
-    path:'users/create',
+    path:'users/:newUser',
     component: UserFormComponent
-=======
+  },
+  { 
     path:'users',
     component:UsersBackofficeComponent
   },
   {
     path:'news',
     component: NewsFormComponent
->>>>>>> 0e59127a8cd656fc37a4501632ec81e9ffc4a7c5
   },
   {
     path:'',

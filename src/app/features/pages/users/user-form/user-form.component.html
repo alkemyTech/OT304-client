@@ -1,7 +1,7 @@
 <div class="contenedor">
     <h1>Crear  Usuario </h1>
     <h1>Editar Usuario</h1>
-    <form [formGroup]="formUser">
+    <form [formGroup]="formUser" (ngSubmit)="createUserEditUser()">
         <div class="name">
             <label for="name"> Nombre completo: </label>
             <input type="text" name="name" formControlName="name">
@@ -19,21 +19,22 @@
         </div>
        
         <div class="rol">
-            <label for="name"> Rol</label>
-            <select name="" id="">
+            <label for="rol"> Rol</label>
+            <select name="rol" formControlName="rol" >
                 <option value="">Seleccionar un rol</option>
-                <option value="">Administrador</option>
-                <option value="">Regular</option>
+                <option value="1">Administrador</option>
+                <option value="2">Regular</option>
             </select>
         </div>
        
         <div class="fotoPerfil">
             <label for="image">Foto de perfil</label>
-            <input type="file" name="image">
+            <input type="file" name="image" formControlName="image" (change)="fileChange($event)">
     
         </div>
-      
-
-          
+        <div class="botones">
+            <button>Crear</button>
+        </div>
+       
     </form>
 </div>

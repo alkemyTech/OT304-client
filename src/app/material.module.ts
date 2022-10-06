@@ -13,22 +13,16 @@ import {MatTableModule} from '@angular/material/table';
         MatInputModule,
         MatButtonModule,
         MatDialogModule,
-<<<<<<< HEAD
-        MatFormFieldModule
-=======
+        MatFormFieldModule,
         MatTableModule
->>>>>>> 0e59127a8cd656fc37a4501632ec81e9ffc4a7c5
     ],
     exports:[
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-<<<<<<< HEAD
-        MatFormFieldModule
-=======
+        MatFormFieldModule,
         MatDialogModule,
         MatTableModule
->>>>>>> 0e59127a8cd656fc37a4501632ec81e9ffc4a7c5
     ]
 })
 

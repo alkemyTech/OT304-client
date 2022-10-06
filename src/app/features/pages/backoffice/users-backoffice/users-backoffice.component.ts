@@ -21,13 +21,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class UsersBackofficeComponent implements OnInit {
  
+  newUser:string='create';
+  
   constructor(private router: Router) { }
   
   ngOnInit(): void {
   }
   
   create():void{
-    this.router.navigateByUrl("backoffice/users/create");
+    this.router.navigate(['backoffice/users/',this.newUser])
   }
   displayedColumns: string[] = ['n0', 'name', 'email', 'actions'];
   dataSource = ELEMENT_DATA;
