@@ -51,8 +51,8 @@ export class NewsContactsService extends HttpService {
 
   public createContacts(
     headersNeeded: boolean = false,
-    body: successContact
-  ): Observable<any> {
+    body: Contact
+  ): Observable<successContact> {
     try{
       let request = super.post<successContact>(this.baseApiUrl+"contacts", headersNeeded, body);
       return request;
