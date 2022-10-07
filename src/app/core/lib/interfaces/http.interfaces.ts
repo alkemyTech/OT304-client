@@ -1,21 +1,29 @@
 /*Aqui se crean las interfaces que tengan como resultado una respuesta exitosa de peticiones
 http*/
 
-import { Contact } from "./entity.interfaces";
+import { Category, Contact } from "./entity.interfaces";
 
-export interface successContact {
-  success: boolean;
+interface got{
+  success:boolean;
+  message:string;
+}
+
+export interface successContact extends got{
   data: Contact;
-  message: string;
 }
 
-export interface successContacts {
-  success: boolean;
+export interface successContacts extends got{
   data: Array<Contact[]>;
-  message: string;
 }
 
-export interface deleted {
-  success: boolean,
-  message: string
+export interface successCategory extends got{
+  data:Category;
+}
+
+export interface successCategories extends got{
+  data:Array<Category>
+}
+
+export interface deleted extends got{
+  data:string
 }
