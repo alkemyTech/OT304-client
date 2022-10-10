@@ -1,0 +1,29 @@
+.home{
+    margin-inline: 5%;
+}
+.welcome{
+    display: flex;
+    justify-content: space-between;
+}
+.presentation{
+    width: 50%;
+    margin: 3em;
+    text-align: center;
+ 
+}
+
+.presentation button{
+    background-color:#FF0000;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+}
+
+#imgPresentation{
+    align-items: center;
+    text-align: center;
+}
+#imgPresentation img{
+    width: 65%;
+
+}
