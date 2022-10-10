@@ -1,7 +1,7 @@
 import { OrganizacionEditService } from './../../../../../core/services/organizacion-edit.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { finalize, map } from 'rxjs/operators';
 @Component({
   selector: 'app-edit',
@@ -9,7 +9,7 @@ import { finalize, map } from 'rxjs/operators';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  public edit = ClassicEditor;
+  // public edit = ClassicEditor;
   public editar:boolean= false;
   public formu!: FormGroup;
   public organizacion:any;
