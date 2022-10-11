@@ -22,19 +22,19 @@ export interface Slides{
 
 //INTERFACE PARA EL USUARIO
 export interface User{
-    id:number;
-    name:string;
+    id:number|null,
+    name:string,
     email:string,
-    email_verified_at:string,
-    password:string,
+    email_verified_at:string|null,
+    password:string|null,
     role_id:number,
-    remember_token:string,
-    created_at:string,
-    update_at:string,
-    delete_at:string,
-    group_id:number,
-    latitude:number,
-    longitude:number,
-    address:string,
-    profile_image:string
+    remember_token:string|null,
+    created_at: string|null,
+    updated_at: string|null,
+    delete_at:  string|null,
+    group_id:number|null,
+    latitude:number|null,
+    longitude:number|null,
+    address:string|null,
+    profile_image:string|null
 }
