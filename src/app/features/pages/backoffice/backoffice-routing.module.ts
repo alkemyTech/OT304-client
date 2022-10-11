@@ -17,6 +17,10 @@ const routes: Routes = [
     component: TestimonialFormComponent
   },
   {
+    path:'users/edit/:id',
+    component:UserFormComponent
+  },
+  {
     path:'users/:newUser',
     component: UserFormComponent
   },
