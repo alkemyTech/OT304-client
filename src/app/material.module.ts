@@ -22,11 +22,8 @@ import {MatTableModule} from '@angular/material/table';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-<<<<<<< HEAD
         MatFormFieldModule,
-=======
         MatSnackBarModule,
->>>>>>> df86b10efdfad61d4af72b4c0839678896124285
         MatDialogModule,
         MatTableModule
     ]
