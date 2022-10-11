@@ -7,6 +7,7 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { DetailComponent } from "./pages/news/detail/detail.component";
 
 const routes: Routes = [
   { 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path:"register",
     component: RegisterFormComponent
+  },
+  {
+    path:"novedades/:id",
+    component: DetailComponent
   },
   {
     path: "",
