@@ -24,6 +24,7 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
 import { DetailComponent } from './pages/news/detail/detail.component';
 
 
+import { NosotrosComponent } from './about/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DetailComponent } from './pages/news/detail/detail.component';
     ContactFormComponent,
     MainContactComponent,
     DetailComponent,
+    NosotrosComponent,
   ],
   exports: [
     ActivityFormComponent,
