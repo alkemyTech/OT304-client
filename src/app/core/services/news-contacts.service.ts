@@ -26,7 +26,7 @@ export class NewsContactsService extends HttpService {
 
     var request: any;
     try{
-      request = super.get<successContacts>(this.baseApiUrl+"contacts/", headersNeeded);
+      request = super.get<successContacts>(this.baseApiUrl+"contacts", headersNeeded);
       return request;
     }catch{
       throw new UrlException();
@@ -51,10 +51,10 @@ export class NewsContactsService extends HttpService {
 
   public createContacts(
     headersNeeded: boolean = false,
-    body: successContact
-  ): Observable<any> {
+    body: Contact
+  ): Observable<successContact> {
     try{
-      let request = super.post<successContact>(this.baseApiUrl+"contacts/", headersNeeded, body);
+      let request = super.post<successContact>(this.baseApiUrl+"contacts", headersNeeded, body);
       return request;
     } catch {
       throw new UrlException();
