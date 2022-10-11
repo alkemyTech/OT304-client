@@ -41,7 +41,7 @@ export class NewsFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
+
     this.formGroup = this.fb.group({
       name: this.obj ? [this.obj.name, [Validators.required, Validators.minLength(4)]] :['', [Validators.required, Validators.minLength(4)]],
       content: this.obj ? [this.obj.content, Validators.required] :  ['', [Validators.required]],
