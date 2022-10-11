@@ -1,3 +1,6 @@
+/*Aqui se crean las interfaces que tengan como resultado una respuesta exitosa de peticiones
+http*/
+
 import { Contact } from "./entity.interfaces";
 
 export interface successContact {
