@@ -7,6 +7,7 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { NosotrosComponent } from './about/nosotros/nosotros.component'
 
 const routes: Routes = [
   { 
@@ -38,14 +39,20 @@ const routes: Routes = [
     component:MainContactComponent
   },
   {
-    path: "**",
-    redirectTo: "home",
-    pathMatch: "full",
+    path:"nosotros",
+    component:NosotrosComponent
   },
   {
     path:"home",
     component:HomeComponent
+  },
+  {
+    path: "**",
+    redirectTo: "home",
+    pathMatch: "full",
   }
+
+
   
 ];
 
