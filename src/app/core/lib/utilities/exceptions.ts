@@ -1,3 +1,6 @@
+/*En este documento se crean todos los posibles errores del cliente, desde errores al 
+insertar datos, como respuestas http fallidas por cualquier circunstancia*/
+
 class Exception{
     public name:string;
     public message:string;

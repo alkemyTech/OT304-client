@@ -1,3 +1,6 @@
+/*Aqui se cream todas las interfaces que tengan que ver con objetos que se puedan convertir
+a JSON y asi manejarse*/
+
 export interface Contact{
     id:number|null,
     name:string,
@@ -8,6 +11,12 @@ export interface Contact{
     created_at: Date|null,
     updated_at: Date|null
 }
+
+export interface SnackInjectData{
+    content:string,
+    type:string
+}
+
 export interface Slides{
     id:number|null,
     name:string,
