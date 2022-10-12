@@ -9,6 +9,9 @@ import { TestimonialFormComponent } from "../../pages/testimonials/testimonial-f
 import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
 import { NewsFormComponent } from '../news/news-form/news-form.component';
 import { MaterialModule } from 'src/app/material.module';
+import { MainCategoriesComponent } from './categories-backoffice/main-categories/main-categories.component';
+import { CategoriesFormComponent } from './categories-backoffice/categories-form/categories-form.component';
+import { CategoriesListComponent } from './categories-backoffice/categories-list/categories-list.component';
 
 
 
@@ -18,7 +21,10 @@ import { MaterialModule } from 'src/app/material.module';
     HomeBackofficeComponent,
     TestimonialFormComponent,
     UsersBackofficeComponent,
-    NewsFormComponent
+    NewsFormComponent,
+    MainCategoriesComponent,
+    CategoriesFormComponent,
+    CategoriesListComponent
   ],
   imports: [
     CommonModule,
