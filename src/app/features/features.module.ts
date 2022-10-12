@@ -24,7 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
-
+import { NosotrosComponent } from './about/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     CarouselComponent,
     ContactFormComponent,
     MainContactComponent,
+    NosotrosComponent,
   ],
   exports: [
     ActivityFormComponent,

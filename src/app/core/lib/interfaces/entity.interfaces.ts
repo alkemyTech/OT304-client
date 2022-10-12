@@ -1,13 +1,26 @@
-export interface Contact{
+/*Aqui se cream todas las interfaces que tengan que ver con objetos que se puedan convertir
+a JSON y asi manejarse*/
+
+//interfaz Padre
+interface Model{
     id:number|null,
-    name:string,
-    email:string,
-    phone:string,
-    message:string,
     deleted_at: Date|null,
     created_at: Date|null,
     updated_at: Date|null
 }
+
+export interface Contact extends Model{
+    name:string,
+    email:string,
+    phone:string,
+}
+
+
+export interface SnackInjectData{
+    content:string,
+    type:string
+}
+
 export interface Slides{
     id:number|null,
     name:string,
@@ -37,4 +50,11 @@ export interface User{
     longitude:number,
     address:string,
     profile_image:string
+}
+
+export interface Category extends Model{
+    name:string;
+    description:string;
+    image:string;
+    parent_category_id:number
 }
