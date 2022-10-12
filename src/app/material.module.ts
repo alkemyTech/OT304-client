@@ -7,6 +7,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import {MatTableModule} from '@angular/material/table';
 
 
+
 @NgModule({
     imports:[
         MatFormFieldModule,
@@ -14,12 +15,14 @@ import {MatTableModule} from '@angular/material/table';
         MatButtonModule,
         MatSnackBarModule,
         MatDialogModule,
+        MatFormFieldModule,
         MatTableModule
     ],
     exports:[
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
+        MatFormFieldModule,
         MatSnackBarModule,
         MatDialogModule,
         MatTableModule

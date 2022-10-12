@@ -5,6 +5,7 @@ import { BackofficeComponent } from './backoffice.component';
 import { HomeBackofficeComponent } from './home-backoffice/home-backoffice.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { TestimonialFormComponent } from "../../pages/testimonials/testimonial-form/testimonial-form.component";
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,6 +27,7 @@ import { NewsFormComponent } from '../news/news-form/news-form.component';
     BackofficeRoutingModule,
     CKEditorModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatTableModule,
     MatButtonModule,
     FormsModule
