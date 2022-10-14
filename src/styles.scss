@@ -1,8 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+@import url('https://unpkg.com/leaflet@1.9.1/dist/leaflet.css');
 
 /* You can add global styles to this file, and also import other style files */
-$color-verde:rgb(5, 194, 5);
+$color-verde:rgb(9, 176, 9);
+$color-rojo: #ff0000;
+$color-azul: rgba(13, 72, 208, 0.986);
 .poppins-bold{
     font-family: 'Dancing Script', cursive;
     font-family: 'Poppins', sans-serif;
@@ -35,3 +38,33 @@ body { margin: 0; font-family: 'Dancing Script', cursive; font-family: Poppins, 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.snack-outline-success{
+    outline: $color-rojo;
+}
+
+.snack-success{
+    background-color: $color-verde;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.snack-fail{
+    background-color: $color-rojo;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.snack-info{
+    background-color: $color-azul;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

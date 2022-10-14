@@ -1,7 +1,14 @@
 <app-navbar></app-navbar>
 <app-head-title [title]="head_title"></app-head-title>
-<div class="container d-flex flex-column">
+<div class="container">
     <a href="/contacto" mat-raised-button class="btn-contribuir poppins">Contribuir</a>
-    <app-contact-form></app-contact-form>
+</div>
+<div class="container d-flex flex-row">
+    <div class="container-sm d-flex flex-column w-20">
+        <app-contact-form></app-contact-form>
+    </div>
+    <div class="container-sm">
+        <app-leafet-map></app-leafet-map>
+    </div>
 </div>
 <app-footer></app-footer>

@@ -2,18 +2,25 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { EditComponent } from "./pages/backoffice/organization/edit/edit.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginGuard } from "../core/guards/login.guard";
+import { DetailComponent } from "./pages/news/detail/detail.component";
+import { NosotrosComponent } from './about/nosotros/nosotros.component'
 
 const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
   },
+  { 
+    path: "backoffice/organization/edit", 
+    component: EditComponent
+    },
   {
     path:"login",
     component: LoginFormComponent
@@ -21,6 +28,10 @@ const routes: Routes = [
   {
     path:"register",
     component: RegisterFormComponent
+  },
+  {
+    path:"novedades/:id",
+    component: DetailComponent
   },
   {
     path: "",
@@ -39,15 +50,21 @@ const routes: Routes = [
     component:MainContactComponent
   },
   {
-    path: "**",
-    redirectTo: "home",
-    pathMatch: "full",
+    path:"nosotros",
+    component:NosotrosComponent
   },
   {
     path:"home",
     component:HomeComponent,
     canActivate:[LoginGuard]
+  },
+  {
+    path: "**",
+    redirectTo: "home",
+    pathMatch: "full",
   }
+
+
   
 ];
 

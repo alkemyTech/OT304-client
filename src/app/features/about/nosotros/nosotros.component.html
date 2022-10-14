@@ -1,0 +1,42 @@
+<h1 class="text-center">Sobre Nosotros</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div
+        *ngFor="let member of data"
+        class="col-sm-12 card resize p-0 rounded-3"
+        style="max-width: 540px"
+      >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{ member.image }}"
+              class="img-fluid rounded-3"
+              alt="200px"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ member.name }}</h5>
+              <p [innerHtml]="member.description" class="card-text"></p>
+              <p></p>
+              <p class="card-text">Facebook: {{ member.facebookUrl }}</p>
+              <p></p>
+              <p class="card-text">Linkedin: {{ member.linkedinUrl }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="twitter col-sm-4">
+      <a
+        class="twitter-timeline"
+        data-theme="auto"
+        href="https://twitter.com/TwitterDev/lists/national-parks?ref_src=twsrc%5Etfw"
+        style="height: 100px"
+        data-tweet-limit="3"
+        >A Twitter List ONG</a
+      >
+    </div>
+  </div>
+</div>

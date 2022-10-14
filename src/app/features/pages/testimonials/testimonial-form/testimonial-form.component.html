@@ -8,22 +8,36 @@
             <label for="name">Su nombre:</label>
             <input type="text" formControlName="name"  name="name"/>
 
-            <div *ngIf="submitted && f.fullname.errors">
-                <div *ngIf="f.fullname.errors.required">Fullname is required</div>
-            </div> 
+            <div class="error" *ngIf="f['name'].touched">
+                <div class="error" *ngIf="f['name'].errors?.['minlength']">El nombre debe tener al menos 4 caracteres.</div>
+                <div *ngIf="f['name'].errors?.['required']">El nombre es requerido.</div>
+            </div>
 
             <label for="description">Descripción del testimonio :</label>
             <ckeditor data="<p>Hello, world!</p>" formControlName="description"  name="description"></ckeditor>
 
+            <div class="error" *ngIf="f['description'].touched">
+                <div *ngIf="f['description'].errors?.['required']">El contenido es requerido.</div>
+            </div>
+
             <label for="image">Foto suya:</label>
             <input type="file" formControlName="image"  name="image" (change)="fileOnChange($event)" /> 
+
+            <div class="error" *ngIf="f['image'].touched">
+                <div *ngIf="f['image'].errors?.['required']">La imagen es obligatoria.</div>
+            </div>
         
 
-            <button *ngIf="create; else editBlock" type="submit">Crear</button>
+            <button *ngIf="create; else editBlock" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" type="submit">Crear</button>
             <ng-template #editBlock>
 
-                <button type="submit">Editar</button>
+                <button type="submit" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" >Editar</button>
             </ng-template>
+
+            <div class="exito" *ngIf="show">
+                <label *ngIf="create">Testimonio creado</label>
+                <label *ngIf="!create">Testimonio editado</label>
+            </div>
         </form>
     </div>
 </div>
