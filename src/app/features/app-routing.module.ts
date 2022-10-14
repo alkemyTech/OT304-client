@@ -7,6 +7,7 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { LoginGuard } from "../core/guards/login.guard";
 
 const routes: Routes = [
   { 
@@ -44,7 +45,8 @@ const routes: Routes = [
   },
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[LoginGuard]
   }
   
 ];

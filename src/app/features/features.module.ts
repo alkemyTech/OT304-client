@@ -6,8 +6,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
+import {AngularFireModule} from "@angular/fire/compat";
 
 
+import { provideFirebaseApp,getApp,initializeApp} from "@angular/fire/app";
+import {getFirestore,provideFirestore} from "@angular/fire/firestore";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
 
@@ -22,6 +25,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
+
+import { environment } from "src/environments/environment";
 
 
 
@@ -47,15 +52,22 @@ import { MainContactComponent } from './pages/contact/main-contact/main-contact.
     NewsFormComponent,
     SlidesFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule,ReactiveFormsModule, FontAwesomeModule, MaterialModule,SharedModule],
+  imports: [
+    CommonModule, 
+    AppRoutingModule, 
+    RouterModule,
+    ReactiveFormsModule, 
+    FontAwesomeModule, 
+    MaterialModule,
+    SharedModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore()),
+  ],
   providers:[
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:HeaderInterceptor,
-      multi:true
-    }
+    
   ]
 })
 export class FeaturesModule {}
