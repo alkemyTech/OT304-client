@@ -63,11 +63,14 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
   imports: [
     CommonModule, 
     AppRoutingModule, 
-    RouterModule,
-    ReactiveFormsModule, 
-    FontAwesomeModule, 
+    RouterModule, 
+    CKEditorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
     MaterialModule,
     SharedModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
     provideFirestore(()=>getFirestore()),
@@ -75,5 +78,6 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
   providers:[
     
   ]
+  
 })
 export class FeaturesModule {}
