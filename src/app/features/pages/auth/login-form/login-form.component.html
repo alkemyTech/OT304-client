@@ -13,6 +13,7 @@
                 <div class="alerta" *ngIf="contactForm.get('password')?.errors?.['required']">Este campo es requerido</div>                    
                 <div class="alerta" *ngIf="contactForm.get('password')?.errors?.pattern">La contraseña debe contener 6 caracteres mínimo, al menos 1 letra, 1 número y un caracter especial. <br>Nota: El primer caracter no puede ser un número</div>
             </div>
+            <div class="alerta" *ngIf=user_passWrong>Usuario y/o contraseña invalida</div>
             <button type="submit"> Inicia sesión</button>
               <!-- El Disabled genera que si alguno de los campos esta invalido no pueda enviar nada, y esto evita llamados a la API en vano -->
         </form>

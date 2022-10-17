@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthFireService } from 'src/app/core/services/auth-fire.service';
+import { AppRoutingModule } from 'src/app/features/app-routing.module';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +11,12 @@ import { NavigationEnd, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   currentRoute:string;
   rootUrl:string;
-  constructor(private router:Router) {
+  buttonLogReg:boolean;
+
+  constructor(private authService:AuthFireService, private router:Router) {
     this.currentRoute= '';
     this.rootUrl="http://127.0.0.1:4200";
-    
+    this.buttonLogReg=true;
     this.router.events.subscribe((event)=>{
       const links=document.getElementsByClassName('link');
       if(event instanceof NavigationEnd){
@@ -23,7 +27,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if(this.authService.isAuth()) {
+      this.buttonLogReg=false
+    } else{
+      this.buttonLogReg=true;
+    }
   }
 
   currentToggle(links:HTMLCollectionOf<Element>):void{
@@ -38,6 +46,16 @@ export class NavbarComponent implements OnInit {
         }
       }
     }
+  }
+
+  logOut(){
+    this.authService.deleteToken();
+  }
+  goLogin(){
+    this.router.navigate(['login']);
+  }
+  goRegister(){
+    this.router.navigate(['register']);
   }
 
 }
