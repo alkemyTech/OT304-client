@@ -9,15 +9,22 @@ import{ MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 export class DialogComponent implements OnInit {
 
   constructor(
-    public dialogRef:MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any) { }
+    public dialog: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      message: string;
+      title: string;
+      confirmText: string;
+      cancelText: string;
+    }
+  ) {}
 
-  ngOnInit(): void {
+  closeDialog(): void {
+    this.dialog.close(false);
   }
-  closeDialog():void{
-    this.dialogRef.close({
-      data:this.data
-    });
+  confirm(): void {
+    this.dialog.close(true);
   }
+  ngOnInit(): void { }
 
 }

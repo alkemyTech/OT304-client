@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { User } from 'src/app/core/lib/interfaces/entity.interfaces';
 import { HttpService } from 'src/app/core/services/http.service';
 import { NewsUsersService } from 'src/app/core/services/news-users.service';
+import { createUserAction, editUserAction } from 'src/app/shared/state/actions/users.actions';
+import { AppState } from 'src/app/shared/state/app.state';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -29,6 +32,7 @@ export class UserFormComponent implements OnInit {
     private form:FormBuilder,
     private route:ActivatedRoute,
     private api:NewsUsersService,
+    private store:Store<AppState>,
     private http:HttpService) {  }
 
   ngOnInit(): void {
@@ -38,13 +42,14 @@ export class UserFormComponent implements OnInit {
       this.edit=false;
     }else{
       this.edit=true;
+      this.id=this.route.snapshot.params['id']
       this.getUser();
     }  
   }
 
   // traer usuario por id
   getUser(){
-    this.api.getUserById(this.number).subscribe((data:any)=>{ 
+    this.api.getUserById(this.id).subscribe((data:any)=>{ 
       this.user=data.data
       this.edit=true;
       this.inicioForm(this.user);
@@ -92,14 +97,37 @@ export class UserFormComponent implements OnInit {
   //Funcion para guardar usuario creado o modificado
   createUserEditUser(){
     if(this.edit){
+      this.store.dispatch(
+        editUserAction({
+          id:this.id,
+          body:{
+            name:this.formUser.value.name,
+            email:this.formUser.value.email,
+            role_id: Number(this.formUser.value.role_id),
+            password: this.formUser.value.password,
+          }
+        })
+      )/*
       this.api.editUser(this.number,this.user).subscribe(data=>{
         console.log('Usuario editado',data)
         this.formUser.reset();
       },
       (error)=>{
         console.log(error)
-      })
+      })*/
     }else{
+      this.store.dispatch(
+        createUserAction({
+          body:{
+            name: this.formUser.get('name')?.value,
+            email:this.formUser.get('email')?.value,
+            password:this.formUser.get('password')?.value,
+            role_id: this.formUser.get('role_id')?.value,
+            profile_image: this.imgBase64
+          }
+        })
+      )
+      /*
       this.http.post(environment.API_URL+'users',false, {
         name: this.formUser.get('name')?.value,
         email:this.formUser.get('email')?.value,
@@ -109,7 +137,7 @@ export class UserFormComponent implements OnInit {
       })
       .subscribe((data:any)=>{
         console.log('Usuario creado:',data);
-      });
+      });*/
     }
     this.formUser.reset();
   }
