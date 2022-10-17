@@ -1,8 +1,8 @@
-<div class="container">    
+<div class="reg_container">    
     <div class="data">
         <p class="welcome">Bienvenido</p>
         <h1 class="login">¡Registrate Aquí!</h1>
-        <form  class="form_" [formGroup]="contactForm" (ngSubmit)="logIn()">
+        <form  class="form_" [formGroup]="contactForm" (ngSubmit)="register()">
             <input id="email" type="text" formControlName="email" class="form-control" placeholder="Email">
             <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="alert alert-danger" role="alert">
                 <div class="alerta" *ngIf="contactForm.get('email')?.errors?.['required']">Este campo es requerido</div>                    

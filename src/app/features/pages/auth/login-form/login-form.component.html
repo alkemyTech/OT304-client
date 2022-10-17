@@ -1,14 +1,14 @@
-<div class="container">
+<div class="login_container">
     <div class="data">
         <p class="welcome">Bienvenido</p>
         <h1 class="login">¡Inicia sesión en tu cuenta!</h1>
         <form  class="form_" [formGroup]="contactForm" (ngSubmit)="logIn()">
-            <input id="email" type="text" formControlName="email" class="form-control" placeholder="Email">
-            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="alert alert-danger" role="alert">
+            <input id="emai" type="text" formControlName="email" class="form-control input_t" placeholder="Email">
+            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="alerta" role="alert">
                 <div class="alerta" *ngIf="contactForm.get('email')?.errors?.['required']">Este campo es requerido</div>                    
                 <div class="alerta" *ngIf="contactForm.get('email')?.errors?.['email']">Debes colocar una dirección de correo valida</div>
             </div>
-            <input id="password" type="text" formControlName="password" class="form-control" placeholder="Contraseña">
+            <input id="passwor" type="text" formControlName="password" class="form-control input_t" placeholder="Contraseña">
             <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.invalid" class="alerta" role="alert">
                 <div class="alerta" *ngIf="contactForm.get('password')?.errors?.['required']">Este campo es requerido</div>                    
                 <div class="alerta" *ngIf="contactForm.get('password')?.errors?.pattern">La contraseña debe contener 6 caracteres mínimo, al menos 1 letra, 1 número y un caracter especial. <br>Nota: El primer caracter no puede ser un número</div>

@@ -8,6 +8,7 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { LoginGuard } from "../core/guards/login.guard";
 import { DetailComponent } from "./pages/news/detail/detail.component";
 import { NosotrosComponent } from './about/nosotros/nosotros.component'
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   },
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[LoginGuard]
   },
   {
     path: "**",

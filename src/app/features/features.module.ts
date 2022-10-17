@@ -5,8 +5,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
+import {AngularFireModule} from "@angular/fire/compat";
 
 
+import { provideFirebaseApp,getApp,initializeApp} from "@angular/fire/app";
+import {getFirestore,provideFirestore} from "@angular/fire/firestore";
 import { HTTP_INTERCEPTORS,HttpClientModule} from "@angular/common/http";
 import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
 
@@ -25,6 +28,8 @@ import { CarouselComponent } from './pages/carousel/carousel.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MainContactComponent } from './pages/contact/main-contact/main-contact.component';
 import { DetailComponent } from './pages/news/detail/detail.component';
+
+import { environment } from "src/environments/environment";
 
 
 import { NosotrosComponent } from './about/nosotros/nosotros.component';
@@ -53,7 +58,7 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
     CategoriesFormComponent,
     SlidesFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
   imports: [
     CommonModule, 
@@ -66,6 +71,13 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
     MaterialModule,
     SharedModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore()),
   ],
+  providers:[
+    
+  ]
+  
 })
 export class FeaturesModule {}
