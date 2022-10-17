@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "actividades",
+    redirectTo: "login",
     pathMatch: "full",
   },
   {
@@ -60,14 +60,7 @@ const routes: Routes = [
     path:"home",
     component:HomeComponent,
     canActivate:[LoginGuard]
-  },
-  {
-    path: "**",
-    redirectTo: "home",
-    pathMatch: "full",
   }
-
-
   
 ];
 
