@@ -14,7 +14,7 @@ export class MapServiceService {
 
   getCoordinates() {
     return this.http.get(
-      `https://api.tomtom.com/search/2/geocode/${this.mapAddress}.json?key=Xmq8mPpIxsl9l5W5vsEc5wVN95UlvStx&countrySet=AR`
+      `https://api.tomtom.com/search/2/geocode/${this.mapAddress}.json?key=Ah89ndJiYp454Z1mibMySdzm7zGSCRDQ&countrySet=AR`
     );
   }
 }

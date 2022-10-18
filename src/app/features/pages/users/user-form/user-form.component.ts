@@ -67,7 +67,8 @@ export class UserFormComponent implements OnInit {
       email:[data.email, [Validators.required, Validators.pattern('^[^@]+@[^@]+\.[a-zA-Z]{2,}$')]],
       password:[data.password ,[Validators.required]],
       role_id:[data.role_id,[Validators.required]],
-      profile_image:[data.profile_image,[Validators.required]]
+      profile_image:[data.profile_image,[Validators.required]],
+      address:[data.address,[Validators.required]]
     })
   }
 
@@ -78,7 +79,8 @@ export class UserFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern('^[^@]+@[^@]+\.[a-zA-Z]{2,}$')]],
       password:['',[Validators.required]],
       role_id:['',[Validators.required]],
-      profile_image:['',[Validators.required]]
+      profile_image:['',[Validators.required]],
+      address:['',[Validators.required]]
       })
   }
 

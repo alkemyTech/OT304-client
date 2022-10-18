@@ -44,7 +44,7 @@ export class UserMapsComponent implements OnInit {
     this.mapa = new google.maps.Map(
       document.getElementById("map") as HTMLElement,
       {
-        mapId: "Ah89ndJiYp454Z1mibMySdzm7zGSCRDQ",
+      
         center: mapCoordinates,
         zoom: 10,
       }
