@@ -15,6 +15,8 @@ export class UserMapsComponent implements OnInit {
   long!: number;
   confirmedAddress = true;
 
+  mapa!: google.maps.Map;
+  markers!: google.maps.Marker;
   ngOnInit(): void {
     this.dataMap();
   }
@@ -39,7 +41,7 @@ export class UserMapsComponent implements OnInit {
 
     const mapCoordinates = { lat: lat, lng: long };
 
-    const map = new google.maps.Map(
+    this.mapa = new google.maps.Map(
       document.getElementById("map") as HTMLElement,
       {
         mapId: "Ah89ndJiYp454Z1mibMySdzm7zGSCRDQ",
@@ -48,9 +50,9 @@ export class UserMapsComponent implements OnInit {
       }
     );
 
-    const marker = new google.maps.Marker({
+    this.markers= new google.maps.Marker({
       position: mapCoordinates,
-      map: map,
+      map: this.mapa,
     });
   }
 
