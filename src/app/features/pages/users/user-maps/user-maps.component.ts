@@ -21,18 +21,18 @@ export class UserMapsComponent implements OnInit {
     this.dataMap();
   }
   dataMap() {
-    this.formUserMap.getCoordinates().subscribe((data: any) => {
-      this.formUserMap.lat = data.results[0].position.lat;
-      this.formUserMap.long = data.results[0].position.lon;
-      this.lat = this.formUserMap.lat;
-      this.long = this.formUserMap.long;
-      this.initMap();
+    this.formUserMap.getCoordinates()
+      .subscribe((data: any) => {
+        this.formUserMap.lat = data.results[0].position.lat;
+        this.formUserMap.long = data.results[0].position.lon;
+        this.lat = this.formUserMap.lat;
+        this.long = this.formUserMap.long;
+        this.initMap();
     });
   }
 
   confirmAddress() {
     this.formUserMap.confirmedAdress = true;
-    console.log(this.formUserMap.confirmedAdress);
   }
 
   initMap(): void {

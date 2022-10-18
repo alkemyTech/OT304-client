@@ -107,6 +107,7 @@ export class UserFormComponent implements OnInit {
             email:this.formUser.value.email,
             role_id: Number(this.formUser.value.role_id),
             password: this.formUser.value.password,
+            address:this.formUser.value.address
           }
         })
       )
@@ -118,7 +119,8 @@ export class UserFormComponent implements OnInit {
             email:this.formUser.get('email')?.value,
             password:this.formUser.get('password')?.value,
             role_id: this.formUser.get('role_id')?.value,
-            profile_image: this.imgBase64
+            profile_image: this.imgBase64,
+            address:this.formUser.get('address')?.value
           }
         })
       )
