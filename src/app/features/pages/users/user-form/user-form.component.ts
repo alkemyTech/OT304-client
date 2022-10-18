@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/core/lib/interfaces/entity.interfaces';
@@ -8,6 +9,8 @@ import { NewsUsersService } from 'src/app/core/services/news-users.service';
 import { createUserAction, editUserAction } from 'src/app/shared/state/actions/users.actions';
 import { AppState } from 'src/app/shared/state/app.state';
 import { environment } from 'src/environments/environment';
+import { MapServiceService } from '../user-maps/map-service.service';
+import { UserMapsComponent } from '../user-maps/user-maps.component';
 
 @Component({
   selector: 'app-user-form',
@@ -23,16 +26,13 @@ export class UserFormComponent implements OnInit {
   user!:User;
   edit!:boolean;
 
-  //tomo para el ejemplo de api 
-  number:string="4026";
-
-
-
   constructor(
     private form:FormBuilder,
     private route:ActivatedRoute,
     private api:NewsUsersService,
     private store:Store<AppState>,
+    private mapUserService:MapServiceService,
+    private dialog:MatDialog,
     private http:HttpService) {  }
 
   ngOnInit(): void {
@@ -107,14 +107,7 @@ export class UserFormComponent implements OnInit {
             password: this.formUser.value.password,
           }
         })
-      )/*
-      this.api.editUser(this.number,this.user).subscribe(data=>{
-        console.log('Usuario editado',data)
-        this.formUser.reset();
-      },
-      (error)=>{
-        console.log(error)
-      })*/
+      )
     }else{
       this.store.dispatch(
         createUserAction({
@@ -127,17 +120,7 @@ export class UserFormComponent implements OnInit {
           }
         })
       )
-      /*
-      this.http.post(environment.API_URL+'users',false, {
-        name: this.formUser.get('name')?.value,
-        email:this.formUser.get('email')?.value,
-        password:this.formUser.get('password')?.value,
-        role_id: this.formUser.get('role_id')?.value,
-        profile_image: this.imgBase64
-      })
-      .subscribe((data:any)=>{
-        console.log('Usuario creado:',data);
-      });*/
+      
     }
     this.formUser.reset();
   }
@@ -164,4 +147,11 @@ export class UserFormComponent implements OnInit {
     }
   }
 
+  openDialog():void{
+    this.mapUserService.mapAddress=this.formUser.value.address;
+    this.dialog.open(UserMapsComponent,{
+      width:'500px',
+      height:'500px'
+    })
+  }
 }
