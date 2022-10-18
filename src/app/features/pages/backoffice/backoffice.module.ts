@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsFormComponent } from '../news/news-form/news-form.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -29,6 +31,8 @@ import { NewsFormComponent } from '../news/news-form/news-form.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatTableModule,
+    MatCardModule,
+    MatIconModule,
     MatButtonModule,
     FormsModule
   ]

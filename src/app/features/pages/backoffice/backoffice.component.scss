@@ -1,0 +1,18 @@
+#titleConfig{
+    text-align: center;
+    margin: 0.7em;
+}
+.cards{
+  margin: 1em;
+  display: flex;
+  justify-content: space-around;
+  .example-card {
+    max-width: 200px;
+    background-color: rgb(124, 115, 115);
+    color: aliceblue;
+  }
+
+}
+
+  
+  
