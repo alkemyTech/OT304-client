@@ -2,9 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Category, SnackStyleSwitcher } from "src/app/core/lib";
-import { EmiterService } from "src/app/core/services/emiter.service";
 import { NewsCategoriesService } from "src/app/core/services/news-categories.service";
-import { OrganizacionEditService } from "src/app/core/services/organizacion-edit.service";
 import { SnackbarcustomComponent } from "src/app/shared/snackbarcustom/snackbarcustom.component";
 
 @Component({

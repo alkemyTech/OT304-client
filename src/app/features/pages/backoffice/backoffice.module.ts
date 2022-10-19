@@ -12,6 +12,11 @@ import { MaterialModule } from 'src/app/material.module';
 import { MainCategoriesComponent } from './categories-backoffice/main-categories/main-categories.component';
 import { CategoriesFormComponent } from './categories-backoffice/categories-form/categories-form.component';
 import { CategoriesListComponent } from './categories-backoffice/categories-list/categories-list.component';
+import { DialogFormComponent } from './shared-backoffice/dialog-form/dialog-form.component';
+import { Category } from 'src/app/core/lib';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+
 
 
 
@@ -24,7 +29,11 @@ import { CategoriesListComponent } from './categories-backoffice/categories-list
     NewsFormComponent,
     MainCategoriesComponent,
     CategoriesFormComponent,
-    CategoriesListComponent
+    CategoriesListComponent,
+    DialogFormComponent,
+  ],
+  entryComponents:[
+    DialogFormComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +41,11 @@ import { CategoriesListComponent } from './categories-backoffice/categories-list
     CKEditorModule,
     ReactiveFormsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    SharedModule
+  ],
+  providers:[
+    Category
   ]
 })
 export class BackofficeModule { }

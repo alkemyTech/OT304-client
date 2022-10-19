@@ -30,11 +30,11 @@ const routes: Routes = [
   },
   {
     path:'',
-    component: BackofficeComponent
+    component: HomeBackofficeComponent
   },
   {
     path:'**',
-    component: BackofficeComponent
+    component: HomeBackofficeComponent
   }
 
 ];
