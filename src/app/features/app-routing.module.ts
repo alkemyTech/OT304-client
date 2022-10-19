@@ -8,7 +8,10 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { HomeComponent } from "./pages/home/home.component";
 import { MainContactComponent } from "./pages/contact/main-contact/main-contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { LoginGuard } from "../core/guards/login.guard";
+import { DetailComponent } from "./pages/news/detail/detail.component";
 import { NosotrosComponent } from './about/nosotros/nosotros.component'
+import { LogRegGuard } from "../core/guards/log-reg.guard";
 
 const routes: Routes = [
   { 
@@ -21,15 +24,21 @@ const routes: Routes = [
     },
   {
     path:"login",
-    component: LoginFormComponent
+    component: LoginFormComponent,
+    canActivate:[LogRegGuard]
   },
   {
     path:"register",
-    component: RegisterFormComponent
+    component: RegisterFormComponent,
+    canActivate:[LogRegGuard]
+  },
+  {
+    path:"novedades/:id",
+    component: DetailComponent
   },
   {
     path: "",
-    redirectTo: "actividades",
+    redirectTo: "login",
     pathMatch: "full",
   },
   {
@@ -49,15 +58,9 @@ const routes: Routes = [
   },
   {
     path:"home",
-    component:HomeComponent
-  },
-  {
-    path: "**",
-    redirectTo: "home",
-    pathMatch: "full",
+    component:HomeComponent,
+    canActivate:[LoginGuard]
   }
-
-
   
 ];
 

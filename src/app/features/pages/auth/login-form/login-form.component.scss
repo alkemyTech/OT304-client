@@ -3,7 +3,7 @@
 
 $letras: "Poppins"; 
 
-.container{
+.login_container{
     position: absolute;
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -38,11 +38,11 @@ $letras: "Poppins";
 .welcome{
     font-size: 13px
 }
-input{
+.form-control{
     font-family: $letras;
     margin-top: 15px;
-    padding: 10px;
-    height: 20px;
+    padding: 15px;
+    height: 40px;
     background: #FFFFFF;
     border: 1px solid #B0B0B0;
     border-radius: 8px;
@@ -69,7 +69,7 @@ a{
     margin-top: -40px;
 }
 .message_bottom{
-    margin-top: 60px;
+    margin-top: 120px;
     text-align: center;   
     font-size: 0.8em;
     line-height: 28px;
@@ -84,7 +84,7 @@ a{
 }
 
 @media screen and (min-width:768px) and (max-width:1024px){
-    .container{
+    .login_container{
         grid-template-columns: 1fr 1fr;
         height: 100%;
        
@@ -98,7 +98,7 @@ a{
 }
 
 @media screen and (min-width:1024px){
-    .container{
+    .login_container{
         grid-template-columns: 1fr 1fr;
         height: 100%;
     }

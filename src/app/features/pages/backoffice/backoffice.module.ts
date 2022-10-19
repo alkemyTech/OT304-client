@@ -6,6 +6,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { BackofficeComponent } from './backoffice.component';
 import { HomeBackofficeComponent } from './home-backoffice/home-backoffice.component';
 import { TestimonialFormComponent } from "../../pages/testimonials/testimonial-form/testimonial-form.component";
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { UsersBackofficeComponent } from './users-backoffice/users-backoffice.component';
 import { NewsFormComponent } from '../news/news-form/news-form.component';
 import { MaterialModule } from 'src/app/material.module';
@@ -15,6 +16,8 @@ import { CategoriesListComponent } from './categories-backoffice/categories-list
 import { DialogFormComponent } from './shared-backoffice/dialog-form/dialog-form.component';
 import { Category } from 'src/app/core/lib';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -45,7 +48,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule
   ],
   providers:[
-    Category
+    Category,
+    MatFormFieldModule,
+    MatTableModule,
+    MatButtonModule,
+    FormsModule
   ]
 })
 export class BackofficeModule { }

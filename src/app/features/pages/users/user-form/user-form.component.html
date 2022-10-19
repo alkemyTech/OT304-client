@@ -1,1 +1,47 @@
-<p>user-form works!</p>
+<div class="contenedor">
+    <h1 *ngIf="!edit">Crear Usuario</h1>
+    <h1 *ngIf="edit">Editar Usuario</h1>
+    <form [formGroup]="formUser" (ngSubmit)="createUserEditUser()">
+        <div class="name">
+            <label for="name"> Nombre completo: </label>
+            <input type="text" name="name" formControlName="name">
+            <div *ngIf="formUser.get('name')?.touched && formUser.get('name')?.errors?.['required']">
+                Este campo es requerido
+            </div>
+            <div *ngIf="formUser.get('name')?.errors?.['minlength']">
+                El nombre debe tener mas de 4 caracteres
+            </div>
+        </div>
+
+
+        <div class="email">
+            <label for="email">Email :</label>
+            <input type="email" formControlName="email">
+        </div>
+
+        <div class="password">
+            <label for="password">Contraseña :</label>
+            <input type="password" formControlName="password">
+        </div>
+
+        <div class="rol">
+            <label for="rol"> Rol</label>
+            <select formControlName="role_id" (change)="changeRole($event)">
+                <option value="">Seleccionar un rol</option>
+                <option *ngFor="let rol of roles" [value]="rol.id">{{rol.name}}</option>
+            </select>
+        </div>
+
+        <div class="fotoPerfil">
+            <label for="image">Foto de perfil</label>
+            <input type="file" name="image" formControlName="profile_image"(change)="fileChange($event)">
+        </div>
+
+
+        <div class="botones">
+            <button mat-raised-button color="primary" *ngIf="!edit">Crear</button>
+            <button mat-raised-button color="primary" *ngIf="edit">Editar</button>
+        </div>
+
+    </form>
+</div>
