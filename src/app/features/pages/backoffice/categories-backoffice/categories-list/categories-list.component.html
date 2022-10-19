@@ -1,3 +1,4 @@
+<!--Titulo de la pagina-->
 <app-head-title [title]="title" [alignTextCenter]="true"></app-head-title>
 <div class="container d-flex flex-column">
     <!--Botón para agregar una nueva categoría-->
@@ -24,10 +25,16 @@
 
         <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef class="text-center"> Imágen </th>
-            <td mat-cell *matCellDef="let category"> <a href="{{category.image}}">Image</a> </td>
+            <td mat-cell *matCellDef="let category">
+                <!--Boton que abre un dialogo para visualizar la imagen-->
+                <button mat-icon-button (click)="openImageDialog(category.image, category.name)">
+                    <mat-icon>image</mat-icon>
+                </button> 
+            </td>
         </ng-container>
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef class="text-center"> Acciones </th>
+            <!--Botones que abren dialogos para editar y eliminar categorias-->
             <td mat-cell *matCellDef="let category">
                 <button mat-icon-button (click)="openEditDialogForm(category.id)">
                     <mat-icon>edit</mat-icon>

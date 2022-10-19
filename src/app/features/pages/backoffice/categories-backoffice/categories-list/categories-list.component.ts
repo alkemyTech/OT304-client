@@ -89,7 +89,19 @@ export class CategoriesListComponent implements OnInit {
     });
   }
 
-  
+  //Abre un dialogo en el que se puede apreciar la imagen y descargarla
+  openImageDialog(img:string,name:string){
+    let category: any = {
+      title: name,
+      type: "image-view",
+      image:img
+    };
+    this.dialog.open(DialogFormComponent, {
+      width: "600px",
+      height:"550px",
+      data: category,
+    });
+  }
 }
 
 
