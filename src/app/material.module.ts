@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon'
+import { MatCardModule } from "@angular/material/card";
 
 
 
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon'
         MatSnackBarModule,
         MatDialogModule,
         MatTableModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     exports:[
         MatFormFieldModule,
@@ -26,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon'
         MatSnackBarModule,
         MatDialogModule,
         MatTableModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ]
 })
 
