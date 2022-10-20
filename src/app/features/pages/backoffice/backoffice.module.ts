@@ -16,10 +16,6 @@ import { CategoriesListComponent } from './categories-backoffice/categories-list
 import { DialogFormComponent } from './shared-backoffice/dialog-form/dialog-form.component';
 import { Category } from 'src/app/core/lib';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-
-
 
 
 
@@ -50,8 +46,6 @@ import { MatTableModule } from '@angular/material/table';
   providers:[
     Category,
     MatFormFieldModule,
-    MatTableModule,
-    MatButtonModule,
     FormsModule
   ]
 })

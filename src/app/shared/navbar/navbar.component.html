@@ -25,8 +25,9 @@
             </a>
         </ul>
         <div class="btn-block">
-            <a rauterlink=login class="b login poppins-bold" mat-raised-button>Log In</a>
-            <a rauterlink="login" class="b register poppins-bold" mat-raised-button>Registrate</a>
+            <a *ngIf=buttonLogReg (click)="goLogin()" class="b login poppins-bold" mat-raised-button>Log In</a>
+            <a *ngIf=buttonLogReg (click)="goRegister()" class="b register poppins-bold" mat-raised-button>Registrate</a>
+            <a *ngIf=!buttonLogReg (click)="logOut()" class="b register poppins-bold" mat-raised-button>Log Out</a>
         </div>
 
     </div>
