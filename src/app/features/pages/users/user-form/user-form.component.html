@@ -37,6 +37,12 @@
             <input type="file" name="image" formControlName="profile_image"(change)="fileChange($event)">
         </div>
 
+        <div class="address">
+            <label for="address">Direccion: </label>
+            <input type="address" name="address" formControlName="address">
+            <button (click)="openDialog()">Ver en mapa</button>
+        </div>
+
 
         <div class="botones">
             <button mat-raised-button color="primary" *ngIf="!edit">Crear</button>
