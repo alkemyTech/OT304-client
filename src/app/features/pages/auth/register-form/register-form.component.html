@@ -4,7 +4,7 @@
         <h1 class="login">¡Registrate Aquí!</h1>
         <form  class="form_" [formGroup]="contactForm" (ngSubmit)="register()">
             <input id="email" type="text" formControlName="email" class="form-control" placeholder="Email">
-            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="alert alert-danger" role="alert">
+            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="alerta alert-danger" role="alert">
                 <div class="alerta" *ngIf="contactForm.get('email')?.errors?.['required']">Este campo es requerido</div>                    
                 <div class="alerta" *ngIf="contactForm.get('email')?.errors?.['email']">Debes colocar una dirección de correo valida</div>
             </div>
@@ -18,6 +18,8 @@
                 <div class="alerta" *ngIf="contactForm.get('password2')?.errors?.['required']">Este campo es requerido</div>                    
                 <div class="alerta" *ngIf="f['password2'].getError('mustMatch')!=null">Las contraseñas no coinciden</div>
             </div>
+            <div class="alerta" *ngIf=userExist >Usuario ya existe</div>
+
             <button type="submit"> Registrarme </button>
               <!-- El Disabled genera que si alguno de los campos esta invalido no pueda enviar nada, y esto evita llamados a la API en vano -->
         </form>

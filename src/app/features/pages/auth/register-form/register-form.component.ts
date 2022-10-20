@@ -9,7 +9,7 @@ import { RegisterService } from 'src/app/core/services/register.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-
+  userExist:boolean=false;
   contactForm!: FormGroup;
 
   constructor(private formBuilder:FormBuilder,private router:Router,private registerSVC:RegisterService) { 
@@ -32,13 +32,12 @@ export class RegisterFormComponent implements OnInit {
       console.log("Error")
       return;
     }
-    console.log(this.contactForm.value);
     this.registerSVC.register(this.contactForm.value).subscribe(
       (res:any)=>{
-        console.log(res);
+
         this.router.navigate(['login']);//Redirige a la ruta HOME
       },
-      error=>console.log(error)
+      error=>this.userExist=true
     );
   }
 
