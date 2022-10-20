@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsFormComponent } from '../news/news-form/news-form.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -33,6 +36,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatCardModule,
     MatIconModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSelectModule,
     MatButtonModule,
     FormsModule
   ]

@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/core/lib/interfaces/entity.interfaces';
-import { NewsUsersService } from 'src/app/core/services/news-users.service';
+
+import {MatPaginator} from '@angular/material/paginator';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
-import {  deleteUser, loadedUsers, loadUsers } from 'src/app/shared/state/actions/users.actions';
-import { selectLoading, selectUser, selectUserFeature } from 'src/app/shared/state/selectors/users.selectors';
+import {  deleteUser,loadUsers } from 'src/app/shared/state/actions/users.actions';
+import { selectLoading, selectUser} from 'src/app/shared/state/selectors/users.selectors';
 export interface PeriodicElement {
   n0:string;
   name: string;
@@ -35,6 +36,12 @@ export class UsersBackofficeComponent implements OnInit {
     private store:Store<any>,
     public dialog: MatDialog,
   ) { }
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   fill(){
     this.store.dispatch(loadUsers())

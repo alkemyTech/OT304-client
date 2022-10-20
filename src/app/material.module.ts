@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -16,7 +18,9 @@ import {MatTableModule} from '@angular/material/table';
         MatSnackBarModule,
         MatDialogModule,
         MatFormFieldModule,
-        MatTableModule
+        MatTableModule,
+        MatPaginatorModule,
+        MatSelectModule
     ],
     exports:[
         MatFormFieldModule,
@@ -25,7 +29,9 @@ import {MatTableModule} from '@angular/material/table';
         MatFormFieldModule,
         MatSnackBarModule,
         MatDialogModule,
-        MatTableModule
+        MatTableModule,
+        MatPaginatorModule,
+        MatSelectModule
     ]
 })
 
