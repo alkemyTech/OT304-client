@@ -9,11 +9,11 @@
     width: 50%;
     margin: 3em;
     text-align: center;
- 
 }
 
 .presentation button{
     background-color:#FF0000;
+    color: aliceblue;
     border: none;
     border-radius: 20px;
     padding: 15px 30px;
@@ -22,8 +22,28 @@
 #imgPresentation{
     align-items: center;
     text-align: center;
-}
-#imgPresentation img{
     width: 65%;
+}
 
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+li{
+    list-style: none;
+}
+img{    
+    width: 300px;
+    height: auto;
+   border-radius: 10px;
+}
+
+.description{
+    position: relative;
+    top: -23%;
+    text-align: center;
 }
