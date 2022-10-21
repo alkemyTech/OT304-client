@@ -16,7 +16,6 @@ import { HeaderInterceptor } from "../core/interceptors/header.interceptor";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { EditComponent } from './pages/backoffice/organization/edit/edit.component';
@@ -39,7 +38,6 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
     ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    CategoriesFormComponent,
     SlidesFormComponent,
     UserFormComponent,
     EditComponent, 
@@ -55,7 +53,6 @@ import { NosotrosComponent } from './about/nosotros/nosotros.component';
     ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    CategoriesFormComponent,
     SlidesFormComponent,
     UserFormComponent,
     RouterModule
