@@ -1,6 +1,8 @@
 /*Aqui se cream todas las interfaces que tengan que ver con objetos que se puedan convertir
 a JSON y asi manejarse*/
 
+import{Injectable}from'@angular/core'
+
 //interfaz Padre
 interface Model{
     id:number|null,
@@ -52,9 +54,78 @@ export interface User{
     profile_image:string
 }
 
-export interface Category extends Model{
-    name:string;
-    description:string;
-    image:string;
-    parent_category_id:number
+
+@Injectable({providedIn:'root'})export class Category implements Model{
+    public id:number|null = 0;
+    public name:string = "";
+    public description:string = "";
+    public image:string = "";
+    public parent_category_id:number = 0;
+    public created_at:Date|null = null;
+    public updated_at:Date|null = null;
+    public deleted_at: Date | null = null;
+
+    constructor(){
+    }
+
+    get getId(){
+        return this.id;
+    }
+    get getName(){
+        return this.name;
+    }
+    get getDescription(){
+        return this.description;
+    }
+    get getImage(){
+        return this.image;
+    }
+    get getPCID(){
+        return this.parent_category_id;
+    }
+    get getCAt(){
+        return this.created_at;
+    }
+    get getUAt(){
+        return this.updated_at;
+    }
+    get getDAt(){
+        return this.deleted_at;
+    }
+
+    set setId(id:number|null){
+        this.id = id;
+    }
+    set setName(name:string){
+        this.name = name;
+    }
+    set setDescription(description:string){
+        this.description = description;
+    }
+    set setImage(image:string){
+        this.image = image;
+    }
+    set setPCID(pcId:number){
+        this.parent_category_id = pcId;
+    }
+    set setCAt(CAt:Date){
+        this.created_at = CAt;
+    }
+    set setUAt(UAt:Date){
+        this.updated_at = UAt;
+    }
+    set setDAt(DAt:Date){
+        this.deleted_at = DAt;
+    }
 }
+
+// @Injectable({providedIn:'root'})export interface Category extends Model{
+//     id:number|null,
+//     name:string,
+//     description:string,
+//     image:string,
+//     parent_category_id:number,
+//     created_at:Date|null,
+//     updated_at:Date|null,
+//     deleted_at: Date | null
+// }

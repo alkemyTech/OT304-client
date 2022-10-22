@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   user!:any; 
   data!:any;
   verify!:any;
-
+  user_passWrong:boolean=false;
   constructor(private login_service: LoginServiceService,private router:Router,private auth_service: AuthFireService) { }
 
   ngOnInit(): void {
@@ -36,6 +36,10 @@ export class LoginFormComponent implements OnInit {
     this.login_service.signIn(this.user).subscribe(
       (res:any)=>{
         this.data=res.data;
+        if(this.data==undefined){
+          this.user_passWrong=true;
+          return;
+        }
         this.saveData(this.data);
         localStorage.setItem('Token',res.data.token); 
         this.router.navigate(['home']);//Redirige a la ruta HOME
