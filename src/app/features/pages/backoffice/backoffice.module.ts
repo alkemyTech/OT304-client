@@ -41,6 +41,8 @@ import { CategoriesListComponent } from './categories-backoffice/categories-list
     BackofficeRoutingModule,
     CKEditorModule,
     ReactiveFormsModule,
+    /*MaterialModule tiene todos los componentes y modulos de material que se necesitan y 
+    los que se requieran, solo se importa y asi se evita la redundancia de codigo*/
     MaterialModule,
     FormsModule,
     SharedModule
