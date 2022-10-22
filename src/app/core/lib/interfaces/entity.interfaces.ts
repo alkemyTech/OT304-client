@@ -1,6 +1,8 @@
 /*Aqui se cream todas las interfaces que tengan que ver con objetos que se puedan convertir
 a JSON y asi manejarse*/
 
+import { FormControl } from "@angular/forms";
+
 //interfaz Padre
 interface Model{
     id:number|null,
@@ -57,4 +59,8 @@ export interface Category extends Model{
     description:string;
     image:string;
     parent_category_id:number
+}
+
+export interface searchItem{
+    query:FormControl<string|null>
 }
