@@ -42,6 +42,7 @@ export class CategoriesListComponent implements OnInit {
       this.categories = new MatTableDataSource(response.data);
     });
   }
+  //Metodo para buscar una categoria en la tabla
   handleSearch(name:string):void{
     this.categories.filter = name;
     this.filtroValor = name;
