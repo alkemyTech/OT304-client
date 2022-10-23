@@ -37,6 +37,15 @@ const routes: Routes = [
     path:"novedades/:id",
     component: DetailComponent
   },
+  
+  {
+    path:"news/:id",
+    component:DetailComponent
+  },
+  {
+    path:"newsViewAll",
+    component:NewsComponent
+  },
   {
     path: "",
     redirectTo: "login",
@@ -61,10 +70,6 @@ const routes: Routes = [
     path:"home",
     component:HomeComponent,
     canActivate:[LoginGuard]
-  },
-  {
-    path:"news",
-    component:NewsComponent
   }
   
 ];

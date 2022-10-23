@@ -39,11 +39,11 @@ const routes: Routes = [
   },
   {
     path:'',
-    component: HomeBackofficeComponent
+    component: BackofficeComponent
   },
   {
     path:'**',
-    component: HomeBackofficeComponent
+    component: BackofficeComponent
   }
 
 ];

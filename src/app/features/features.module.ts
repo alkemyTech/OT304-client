@@ -34,6 +34,7 @@ import { environment } from "src/environments/environment";
 import { NosotrosComponent } from './about/nosotros/nosotros.component';
 import { ListAboutComponent } from './about/list-about/list-about.component';
 import { NewsComponent } from './pages/news/news/news.component';
+import { NewsViewComponent } from './pages/news/news-view/news-view.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { NewsComponent } from './pages/news/news/news.component';
     NosotrosComponent,
     ListAboutComponent,
     NewsComponent,
+    NewsViewComponent,
   ],
   exports: [
     ActivityFormComponent,

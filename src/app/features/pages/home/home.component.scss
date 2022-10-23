@@ -28,7 +28,11 @@
 .title{
     display: flex;
     justify-content: space-between;
+    a{
+        color: black;
+    }
 }
+
 ul{
     display: flex;
     justify-content: space-evenly;
@@ -46,4 +50,8 @@ img{
     position: relative;
     top: -23%;
     text-align: center;
+}
+app-news-view{
+   display: flex;
+   justify-content: space-evenly;
 }
