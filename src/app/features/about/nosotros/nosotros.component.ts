@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { HttpService } from "../../../core/services/http.service";
 
 @Component({
@@ -7,7 +7,7 @@ import { HttpService } from "../../../core/services/http.service";
   styleUrls: ["./nosotros.component.scss"],
 })
 export class NosotrosComponent implements OnInit {
-  public data: any = [];
+  @Input() data: any = [];
 
   constructor(private http: HttpService) {}
 
