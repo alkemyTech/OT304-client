@@ -3,44 +3,58 @@
     <h1 *ngIf="edit">Editar Usuario</h1>
     <form [formGroup]="formUser" (ngSubmit)="createUserEditUser()">
         <div class="name">
-            <label for="name"> Nombre completo: </label>
-            <input type="text" name="name" formControlName="name">
-            <div *ngIf="formUser.get('name')?.touched && formUser.get('name')?.errors?.['required']">
-                Este campo es requerido
-            </div>
-            <div *ngIf="formUser.get('name')?.errors?.['minlength']">
-                El nombre debe tener mas de 4 caracteres
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input #name matInput name="name" type="text" formControlName="name" />
+            </mat-form-field>
+            <div *ngIf="formUser.get('name')?.touched && formUser.get('name')?.invalid">
+                El nombre debe tener al menos 4 caracteres.
             </div>
         </div>
 
-
         <div class="email">
-            <label for="email">Email :</label>
-            <input type="email" formControlName="email">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="name" placeholder="Juan Perez">
+            </mat-form-field>
+            <div *ngIf="formUser.get('email')?.touched && formUser.get('email')?.invalid">
+                El email no es valido
+            </div>
         </div>
 
         <div class="password">
-            <label for="password">Contraseña :</label>
-            <input type="password" formControlName="password">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput formControlName="password" placeholder="Ex. pat@example.com">
+            </mat-form-field>
         </div>
 
         <div class="rol">
-            <label for="rol"> Rol</label>
-            <select formControlName="role_id" (change)="changeRole($event)">
-                <option value="">Seleccionar un rol</option>
-                <option *ngFor="let rol of roles" [value]="rol.id">{{rol.name}}</option>
-            </select>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Rol </mat-label>
+                <mat-select formControlName="role_id" name="food">
+                    <mat-option>Seelccionar un rol</mat-option>
+                  <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                    {{rol.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
         </div>
 
         <div class="fotoPerfil">
-            <label for="image">Foto de perfil</label>
+            <mat-label>Subir Imagen</mat-label>
             <input type="file" name="image" formControlName="profile_image"(change)="fileChange($event)">
+          
         </div>
 
         <div class="address">
-            <label for="address">Direccion: </label>
-            <input type="address" name="address" formControlName="address">
-            <button (click)="openDialog()">Ver en mapa</button>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Direccion</mat-label>
+                <input type="address" matInput formControlName="address" placeholder="calle san juan 705">
+            </mat-form-field>
+            <button mat-raised-button (click)="openDialog()">Ver en mapa</button>
         </div>
 
 
