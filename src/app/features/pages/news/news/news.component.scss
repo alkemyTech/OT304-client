@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+    margin-top: 1em;
+}
+button{
+    margin-left: 2em;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff0000;
+    color: aliceblue;
+    padding: 0.5em 2em;
+}
+app-news-view{
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px);
+    gap: 40px;
+    padding: 40px;
+    justify-content: center;
+ 
+}

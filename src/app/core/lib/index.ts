@@ -1,4 +1,4 @@
-import { Contact,SnackInjectData,Category } from "./interfaces/entity.interfaces"
+import { Contact,SnackInjectData,Category, searchItem } from "./interfaces/entity.interfaces"
 import { 
     successContact,
     successContacts,
@@ -20,5 +20,6 @@ export {
     successCategory,
     successCategories,
     deleted,
+    searchItem,
     SnackStyleSwitcher
 }
