@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -43,7 +44,12 @@ export class DialogFormComponent implements OnInit {
         location.reload()
       },3000)
     },err=>{
-      console.error(err)
+      if(err instanceof HttpErrorResponse){
+        this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+          content: err.error,
+          type: "error"
+        }))
+      }
     })
     
   }
