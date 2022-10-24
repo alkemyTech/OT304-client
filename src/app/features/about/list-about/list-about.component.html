@@ -1,0 +1,10 @@
+
+<div class="miembro">
+    <div class="cards" *ngFor="let member of staff">
+        <img class="image" src="{{member.image}}" alt="{{member.name}}">
+        <div class="description">
+            <h5>{{member.name}}</h5>
+            <p [innerHTML]="member.description"></p>
+        </div>
+    </div>
+</div>

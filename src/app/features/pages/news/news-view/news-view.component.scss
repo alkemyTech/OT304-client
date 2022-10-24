@@ -1,0 +1,31 @@
+.news{
+    width: 100%;
+    margin: 1em;
+    color: aliceblue ;
+    .cards{
+        padding: 0.8em;
+        border-radius: 20px;
+        background-color: #7E9AFD;
+        border: 2px solid #0038FF;
+        text-align: center;
+        display: flex;
+        img{
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            margin: auto;
+        }
+        .content{
+            margin: 0 1em;
+            width: 100%;
+        }
+        button{
+            width: 100%;
+            background-color: #0038FF;
+            border-radius: 10px;
+            border: none;
+            padding:0.5em 1em;
+            color: aliceblue ;
+        }   
+    }
+}
