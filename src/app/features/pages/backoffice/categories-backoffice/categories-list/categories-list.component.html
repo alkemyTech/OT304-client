@@ -5,6 +5,7 @@
     <button mat-raised-button (click)="openSaveDialogForm()" class="my-4">
         <mat-icon>add</mat-icon> Crear categoría
     </button>
+    <app-search-form (searchEmitter)="handleSearch($event)"></app-search-form>
     <!--Aquí se inyecta la data que estará pintándose en la tabla-->
     <table mat-table [dataSource]="categories" class="mat-elevation-z8 text-center">
         <!--Aqui se definen las columnas universalmente que pertenecerán a cada fila relacionada-->
@@ -47,5 +48,10 @@
         <!--Aqui se definen cuales y cuantas seran las filas a ser renderizadas en la tabla-->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!--Esta es la informacion que se muestra por defecto si los resultados
+        no coinciden con el filtro-->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Resultados de "{{filtroValor}}" no encontrados</td>
+        </tr>
     </table>
 </div>
