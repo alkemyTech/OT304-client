@@ -1,5 +1,7 @@
+<app-navbar></app-navbar>
 <div class="home">
-    <div class="welcome">
+    <!-- Bienvenida-->
+    <section class="welcome">
         <div class="presentation">
             <h1>Hola! Bienvenidos</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum quisquam explicabo quidem dignissimos ex
@@ -11,40 +13,39 @@
         <div id="imgPresentation">
             <app-slides-form></app-slides-form>
         </div>
-    </div>
+    </section>
 
-    <div class="title">
-        <h2>Nuestro staff</h2>
-        <h4>Ver todos</h4>
-    </div>
-    <ul class="slider">
-        <li>
-            <img src="../../../../../assets/image/staff/Cecilia Mendez.jpeg" alt="">
-            <div class="description">
-                <h1>Lucrecia Roldan</h1>
-                <h4>CoFounder</h4>
-            </div>
-        </li>
-    
-        <li>
-            <img src="../../../../../assets/image/staff/Cecilia Mendez.jpeg" alt="">
-            <div class="description">
-                <h1>Lucrecia Roldan</h1>
-                <h4>CoFounder</h4>
-            </div>
-        </li>
-    
-        <li>
-            <img src="../../../../../assets/image/staff/Miriam Rodriguez.jpg" alt="">
-            <div class="description">
-                <h1>Lucrecia Roldan</h1>
-                <h4>CoFounder</h4>
-            </div>
-        </li>
-    </ul>
-    <div class="title">
-        <h2>Testimonios</h2>
-        <h4>Ver todos</h4>
-    </div>
-    
+    <!-- Nuestro Staff -->
+    <section>
+        <div class="title">
+            <h2>Nuestro Staff</h2>
+            <a href="nosotros">Ver Todo > </a>
+        </div>
+        <div class="miembros">
+            <app-list-about [limiteStaff]="true"></app-list-about>
+        </div>
+    </section>
+
+    <!-- Testimonio-->
+    <section>
+        <div class="title">
+            <h2>Testimonios</h2>
+            <a href="testimonios">Ver Todo > </a>
+        </div>
+        <div class="miembros">
+            <app-testimonial-list [limiteTestimonio]="true"></app-testimonial-list>
+        </div>
+    </section>
+
+    <!-- Ultimas Novedades-->
+    <section>
+        <div class="title">
+            <h2>Últimas Novedades</h2>
+            <a href="novedades">Ver Todos > </a>
+        </div>
+        <div class="news">
+            <app-news-view></app-news-view>
+        </div>
+    </section>
 </div>
+<app-footer></app-footer>
