@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-
 import { HeadTitleComponent } from './head-title/head-title.component';
 import { FooterComponent } from './footer/footer.component'
 import { NavbarComponent } from './navbar/navbar.component';

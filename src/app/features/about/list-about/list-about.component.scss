@@ -1,0 +1,18 @@
+.miembro{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,330px);
+    justify-content: center;
+    .cards{
+        margin: 1em;
+        .image{
+            width: 100%;
+            border-radius: 1em;
+        }
+        .description{
+            margin-top: -70px;
+            text-align: center;
+            color: aliceblue;
+            font-size: x-large;
+        }
+    }
+}

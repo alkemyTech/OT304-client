@@ -12,6 +12,9 @@ import { LoginGuard } from "../core/guards/login.guard";
 import { DetailComponent } from "./pages/news/detail/detail.component";
 import { NosotrosComponent } from './about/nosotros/nosotros.component'
 import { LogRegGuard } from "../core/guards/log-reg.guard";
+import { NewsComponent } from "./pages/news/news/news.component";
+import { ListAboutComponent } from "./about/list-about/list-about.component";
+import { TestimonialListComponent } from "./pages/testimonials/testimonial-list/testimonial-list.component";
 
 const routes: Routes = [
   { 
@@ -35,6 +38,27 @@ const routes: Routes = [
   {
     path:"novedades/:id",
     component: DetailComponent
+  },
+  
+  {
+    path:"news/:id",
+    component:DetailComponent
+  },
+  {
+    path:"novedades",
+    component:NewsComponent
+  },
+  {
+    path:"testimonios",
+    component:TestimonialListComponent
+  },
+  {
+    path:"newTestimonio",
+    component:TestimonialFormComponent
+  },
+  {
+    path:"miembros",
+    component:ListAboutComponent
   },
   {
     path: "",

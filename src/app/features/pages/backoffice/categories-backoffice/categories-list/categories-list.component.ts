@@ -14,6 +14,8 @@ import { DialogFormComponent } from "../../shared-backoffice/dialog-form/dialog-
 export class CategoriesListComponent implements OnInit {
   //titulo del componente head-title
   title:string = "Laboratorio de categorías";
+  //nombre del filtro a buscar
+  filtroValor:string = "";
   //variables necesarias de la tabla
   categories!: MatTableDataSource<Category>;
   displayedColumns: Array<string> = [
@@ -39,6 +41,11 @@ export class CategoriesListComponent implements OnInit {
     this.catService.getCategories(false).subscribe((response) => {
       this.categories = new MatTableDataSource(response.data);
     });
+  }
+  //Metodo para buscar una categoria en la tabla
+  handleSearch(name:string):void{
+    this.categories.filter = name;
+    this.filtroValor = name;
   }
   //se trae solo una categoria por medio del id
   getOne(id: number): Category {

@@ -1,7 +1,8 @@
 /*Aqui se cream todas las interfaces que tengan que ver con objetos que se puedan convertir
 a JSON y asi manejarse*/
 
-import{Injectable}from'@angular/core'
+import { FormControl } from "@angular/forms";
+import { Injectable } from "@angular/core";
 
 //interfaz Padre
 interface Model{
@@ -53,7 +54,6 @@ export interface User{
     address:string,
     profile_image:string
 }
-
 
 @Injectable({providedIn:'root'})export class Category implements Model{
     public id:number|null = 0;
@@ -119,13 +119,13 @@ export interface User{
     }
 }
 
-// @Injectable({providedIn:'root'})export interface Category extends Model{
-//     id:number|null,
-//     name:string,
-//     description:string,
-//     image:string,
-//     parent_category_id:number,
-//     created_at:Date|null,
-//     updated_at:Date|null,
-//     deleted_at: Date | null
+// export interface Category extends Model{
+//     name:string;
+//     description:string;
+//     image:string;
+//     parent_category_id:number
 // }
+
+export interface searchItem{
+    query:FormControl<string|null>
+}

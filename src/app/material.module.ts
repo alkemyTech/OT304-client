@@ -9,6 +9,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from "@angular/material/card";
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -24,7 +25,8 @@ import { MatCardModule } from "@angular/material/card";
         MatPaginatorModule,
         MatSelectModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
+        MatPaginatorModule
     ],
     exports:[
         MatFormFieldModule,
@@ -36,7 +38,8 @@ import { MatCardModule } from "@angular/material/card";
         MatPaginatorModule,
         MatSelectModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
+        MatPaginatorModule
     ]
 })
 
