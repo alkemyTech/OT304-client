@@ -65,6 +65,7 @@ export class CategoriesListComponent implements OnInit {
       category: this.getOne(id),
       title: "Editar categoría No. " + id,
       type: "edit",
+      objType: "categoría"
     };
     this.dialog.open(DialogFormComponent, {
       width: "600px",
@@ -76,6 +77,7 @@ export class CategoriesListComponent implements OnInit {
     let category: any = {
       title: "Crear nueva categoría",
       type: "save",
+      objType: "categoría"
     };
     this.dialog.open(DialogFormComponent, {
       width: "600px",
@@ -87,7 +89,8 @@ export class CategoriesListComponent implements OnInit {
     let category: any = {
       title: "Borrar categoría",
       type: "before-deleted",
-      id:id
+      id:id,
+      objType: "categoría"
     };
     this.dialog.open(DialogFormComponent, {
       width: "600px",
