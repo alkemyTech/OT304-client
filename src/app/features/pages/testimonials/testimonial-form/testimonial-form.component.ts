@@ -1,145 +1,148 @@
+import {
+    Component, Inject, Input, OnInit
+}
+from '@angular/core';
+import {
+    FormBuilder, FormGroup, Validators
+}
+from '@angular/forms';
+import {
+    MatDialog, MAT_DIALOG_DATA
+}
+from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  SnackStyleSwitcher,
+    Testimonial
+}
+from 'src/app/core/lib';
+import {
+    OrganizacionEditService
+}
+from 'src/app/core/services/organizacion-edit.service';
+import {
+    TestimonialsService
+}
+from 'src/app/core/services/testimonials.service';
+import { SnackbarcustomComponent } from 'src/app/shared/snackbarcustom/snackbarcustom.component';
 
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { HttpService } from 'src/app/core/services/http.service';
-import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
-import { environment } from 'src/environments/environment';
+@Component({ selector: 'app-testimonial-form', templateUrl: './testimonial-form.component.html', styleUrls: ['./testimonial-form.component.scss'] }) export class TestimonialFormComponent implements OnInit {
 
-@Component({
-  selector: 'app-testimonial-form',
-  templateUrl: './testimonial-form.component.html',
-  styleUrls: ['./testimonial-form.component.scss']
-})
-export class TestimonialFormComponent implements OnInit {
+    // @Input() obj : any = {
+    // id:466,
+    // name: "Editanding",
+    // image: "http://ongapi.alkemy.org/storage/dAtRc9eTah.jpeg",
+    // description: "<p>CKEditor Editanding pruebadd</p>",
 
-  // @Input() obj : any = {
-  //   id:466,
-  //   name: "Editanding",
-  //   image: "http://ongapi.alkemy.org/storage/dAtRc9eTah.jpeg",
-  //   description: "<p>CKEditor Editanding pruebadd</p>",
-
-  // };
-
-  @Input() obj : any;
-  
-  formData : FormData = new FormData();
-  formGroup !: FormGroup;
-  name : string = '';
-  description : string = '';
-  imgBase64 !: any;
-  create : boolean = true;
-  show : boolean = false;
-
-  constructor(private fb : FormBuilder, private api : HttpService, private dialog:MatDialog) {
-
-    this.analizeObject();
-
-  }
-
-  ngOnInit(): void {
+    // };
 
 
-    this.formGroup = this.fb.group({
-      name: this.obj ? [this.obj.name, [Validators.required, Validators.minLength(4)]] :['', [Validators.required, Validators.minLength(4)]],
-      description: this.obj ? [this.obj.description, Validators.required] :  ['', [Validators.required]],
-      image: ['', Validators.required],
-    });
+    formData: FormData = new FormData();
+    formGroup !: FormGroup;
+    testimonio: Testimonial;
+    id: number = 0;
+    name: string = '';
+    description: string = '';
+    image: string = "";
+    show: boolean = false;
+    create: boolean = true;
 
-  }
+    constructor(
+      private fb : FormBuilder, 
+      private api : TestimonialsService, 
+      public orgService : OrganizacionEditService, 
+      @Inject(MAT_DIALOG_DATA) public data:any,
+      private snackbar:MatSnackBar) {
+        //seteando las variables que se inyectan a traves de data
+        this.testimonio = this.data.testimonial;
+        this.id = this.testimonio.id;
+        this.name = this.testimonio.name;
+        this.description = this.testimonio.description;
+        this.analizeObject();
 
-  analizeObject(){
-    if(this.obj){
-      this.create = false;
     }
-  }
 
-  
-  get f(){
-    return this.formGroup.controls;
-  }
+    ngOnInit():void {
+      //construyendo el formulario
+        this.formGroup = this.fb.group({ 
+          id: this.id ? [{value:this.id,disabled:true}] : [{value:'0', disabled:true}], 
+          name: this.name ? [this.name, [Validators.required, Validators.minLength(4)]] :['', [Validators.required, Validators.minLength(4)]], 
+          description: this.description ? [this.description, Validators.required] : ['', [Validators.required]], 
+          image: this.image ? ['', Validators.required] : ['', Validators.required] 
+        });
 
-  createOrEdit(){
-
-    if(this.create){
-    
-      this.api.post(environment.API_URL + 'testimonials',false, {
-        name: this.formGroup.get('name')?.value,
-        description:this.formGroup.get('description')?.value,
-        image: this.imgBase64
-      })
-      .subscribe((res : any)=>{
-        
-        if(res.error){
-
-          this.openDialog(res.error);
-
-        }else{
-
-           this.openDialog("Testimonio creado con éxito.");
+    }
+    //control de flujo de datos con condicionamiento del comportamiento del form segun el valor de type
+    analizeObject() {
+        if(this.data.type === "edit") {
+            this.create = false;
         }
-      });
-    
-    }else{
+    }
 
-      this.api.put( environment.API_URL+ 'testimonials/' + this.obj.id,false, {
-        name: this.formGroup.get('name')?.value,
-        description:this.formGroup.get('description')?.value,
-        image: this.imgBase64,
-      })
-      .subscribe((res : any )=>{
-        if(res.error){
-
-          this.openDialog(res.error);
-
-        }else{
-
-          this.openDialog("Testimonio modificado con éxito.");
+    //getter del formulario
+    get f() {
+        return this.formGroup.controls;
+    }
+    //crear o editar testimonios
+    createOrEdit(values: any) {
+        this.image = this.orgService.img;
+        if(this.create && this.image) {
+          values.image = this.image
+          this.createTestimonial(values);
         }
-      });
+        else {
+          this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+            content:"Fallo al crear testimonio",
+            type:"error"
+          }))
+        }
+
+        if(!this.create && this.image && values.id > 0) {
+          values.image = this.image;
+          this.editTestimonial(values);  
+        }
+        else {
+          this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+            content:"Fallo al editar testimonio",
+            type:"error"
+          }))
+        }
+
+
+        this.show = !this.show;
+        setTimeout(() => { this.show = !this.show; }, 3000);
+
+        this.formGroup.reset();
     }
-
-    
-    this.show = !this.show;
-    setTimeout(() => {
-
-    this.show = !this.show;
-
-    }, 3000);
-
-    this.formGroup.reset();
-  }
-
-  fileOnChange(e: any) {
-
-    let imagen = e.target.files[0];
-    let allowedExtensions = /(.jpg|.png)$/i;
-
-    if (allowedExtensions.exec(imagen.name)) {
-      this.convertFileToBase64(imagen);
-    }
-    else {
-      console.log("El archivo no es imagen");
-      this.imgBase64 = null;
-      this.formGroup.controls.img.setErrors({
-        invalidExtension: true
-      });
-    }
-
-  }
-
-  async convertFileToBase64(file: any) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.imgBase64 = reader.result?.toString();
-    };
-  }
-
-  openDialog(info :string){
-    this.dialog.open(DialogComponent,{
-      data : info
+    //crear testimonios
+  createTestimonial(body:Testimonial){
+    this.api.createTestimonial(body, false) .subscribe((res)=>{ 
+      this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+        content:res.message,
+        type:"success"
+      }))
+      console.log(res)
+      setTimeout(()=>{
+        location.reload();
+      },3000)
+    },err=>{
+      console.log(err);
     });
   }
-
+  //editar testimonios
+  editTestimonial(values:Testimonial):void{
+    this.api.updateTestimonialById(values, values.id.toString(), false) 
+            .subscribe((res : any)=>{ 
+              this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+                content:res.message,
+                type:"success"
+              }))
+              console.log(res)
+              setTimeout(()=>{
+                location.reload();
+              },3000)
+            },err=>{
+              console.log(err);
+            });
+  }
 }
