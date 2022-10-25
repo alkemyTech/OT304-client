@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit, Inject } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
@@ -92,7 +93,12 @@ export class CategoriesFormComponent implements OnInit {
           setTimeout(()=>{location.reload()},3000)
         },
         (error) => {
-          console.error(error);
+          if(error instanceof HttpErrorResponse){
+            this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+              content: "Los datos no han sido proveídos correctamente",
+              type: "error"
+            }))
+          }
         }
       );
     
@@ -117,7 +123,12 @@ export class CategoriesFormComponent implements OnInit {
           }, 3000);
         },
         (error) => {
-          console.log(error);
+          if(error instanceof HttpErrorResponse){
+            this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+              content: "Los datos no han sido proveídos correctamente",
+              type: "error"
+            }))
+          }
         }
       );
     } else {
