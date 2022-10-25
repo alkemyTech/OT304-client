@@ -129,3 +129,10 @@ export interface User{
 export interface searchItem{
     query:FormControl<string|null>
 }
+
+export interface Testimonial extends Model{
+    id: number,
+    name: string,
+    image: string,
+    description: string
+}

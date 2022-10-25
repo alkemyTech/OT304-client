@@ -1,7 +1,7 @@
 /*Aqui se crean las interfaces que tengan como resultado una respuesta exitosa de peticiones
 http*/
 
-import { Category, Contact } from "./entity.interfaces";
+import { Category, Contact, Testimonial } from "./entity.interfaces";
 
 interface got{
   success:boolean;
@@ -13,7 +13,7 @@ export interface successContact extends got{
 }
 
 export interface successContacts extends got{
-  data: Array<Contact[]>;
+  data: Array<Contact>;
 }
 
 export interface successCategory extends got{
@@ -21,9 +21,17 @@ export interface successCategory extends got{
 }
 
 export interface successCategories extends got{
-  data:Array<Category>
+  data:Array<Category>;
+}
+
+export interface successTestimonial extends got{
+  data:Testimonial;
+}
+
+export interface successTestimonials extends got{
+  data:Array<Testimonial>;
 }
 
 export interface deleted extends got{
-  data:string
+  data:string;
 }
