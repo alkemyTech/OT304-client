@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { NewsUsersService } from 'src/app/core/services/news-users.service';
 import { OrganizacionEditService } from 'src/app/core/services/organizacion-edit.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
-import { editUserAction } from 'src/app/shared/state/actions/users.actions';
+import { editUserAction, editUserSuccess } from 'src/app/shared/state/actions/users.actions';
 import { AppState } from 'src/app/shared/state/app.state';
 import { environment } from 'src/environments/environment';
 
@@ -84,22 +84,25 @@ export class FormUsuariosComponent implements OnInit {
     return this.form.get("address");
   }
   onClickUpdate(value:User){
-    const index  = this.user.id;
+const index  = this.user.id;
     this.store.dispatch(
       editUserAction({
         id:'1677',
         body:{
           name:this.form.value.name,
           email:this.form.value.email,
-          role_id: Number(this.form.value.role_id),
           password: this.form.value.password,
           address:this.form.value.address
         }
       })
     )
-    
+    this.store.dispatch(
+      editUserSuccess()
+    )
 
-    /*const index  = this.user.id;
+       /* 
+
+    const index  = this.user.id;
     let url=`${environment.API_URL}users/${index?.toString()}`
     this.http.put(url,false,value)
       .subscribe(
@@ -108,18 +111,17 @@ export class FormUsuariosComponent implements OnInit {
           console.log(typeof res)
            this.dialog.open(DialogComponent,{
             data:{
-              title:"Error al editar",
-              message:res,
+              title:"Success",
+              message:"Usuario editado con exito",
               confirmText:'OK',
               cancelText:'Cancel'
             }
-          }
-
-           )
+          })
+          .afterClosed()
         }
 
       )
-*/
+*/  
   }
 
 }
