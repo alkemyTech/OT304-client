@@ -56,7 +56,7 @@ export class UserEffects{
             )
         )
     ));
-
+/*
     deleteUser$= createEffect(()=>
         this.actions$.pipe(
             ofType(deleteUser),
@@ -68,6 +68,6 @@ export class UserEffects{
             )
         )
     );
-
+*/
 
 }

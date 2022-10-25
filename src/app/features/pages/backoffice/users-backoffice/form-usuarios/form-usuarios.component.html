@@ -1,0 +1,63 @@
+
+<!--Formulario reactivo de edición de categoría-->
+<ng-template [ngIf]="data.type === 'edit' || data.type === ''">
+    <form [formGroup]="form" (ngSubmit)="onClickUpdate(form.value)">
+        <div class="input-group d-flex flex-column">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matNativeControl formControlName="name" type="text" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matNativeControl formControlName="email" type="email" />
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matNativeControl formControlName="password" type="password" />
+            </mat-form-field>
+
+            <div class="mb-4">
+                <label for="formFile" class="form-label">Imágen</label>
+                <input class="form-control" (change)="orgService.putImg($event)"  formControlName="profile_image" type="file" id="formFile">
+          
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matNativeControl formControlName="address" type="text" />
+            </mat-form-field>
+        </div>
+        <div class="btn-block">
+            <button class="mx-2" mat-dialog-close mat-raised-button type="button" color="warn">Cancelar</button>
+            <button mat-raised-button color="primary" type="submit">Editar</button>
+        </div>
+    </form>
+</ng-template>
+<!--Formulario reactivo de creación de categoría-->
+<ng-template [ngIf]="data.type ==='save'">
+    <form [formGroup]="form" >
+        <div class="input-group d-flex flex-column">
+            <mat-form-field appearance="outline">
+                <mat-label>Id</mat-label>
+                <input matNativeControl formControlName="id" type="text" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matNativeControl formControlName="name" type="text" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matNativeControl formControlName="email" type="email" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matNativeControl formControlName="password" type="password" />
+            </mat-form-field>
+        </div>
+        <div class="btn-block">
+            <button class="mx-2" mat-dialog-close mat-raised-button type="button" color="warn">Cancelar</button>
+            <button mat-raised-button color="primary" type="submit">Guardar</button>
+        </div>
+    </form>
+</ng-template>

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Category, SnackStyleSwitcher } from "src/app/core/lib";
+import { User } from "src/app/core/lib/interfaces/entity.interfaces";
 import { NewsCategoriesService } from "src/app/core/services/news-categories.service";
 import { SnackbarcustomComponent } from "src/app/shared/snackbarcustom/snackbarcustom.component";
 
@@ -15,6 +16,7 @@ export class DialogFormComponent implements OnInit {
   de la variable type*/
   
   category!: Category;
+
   type: string;
   /*dependencias inyectadas en el constructor*/
   constructor(
