@@ -16,6 +16,7 @@ export class DialogFormComponent implements OnInit {
   
   category!: Category;
   type: string;
+  objType: string;
   /*dependencias inyectadas en el constructor*/
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,7 +24,7 @@ export class DialogFormComponent implements OnInit {
     private catService: NewsCategoriesService,
     private snackbar: MatSnackBar
   ) {
-
+    this.objType = this.data.objType;
     this.type = this.data.type;
   }
 
@@ -31,20 +32,20 @@ export class DialogFormComponent implements OnInit {
   ngOnInit(): void {}
   /*Para borrar categoria seleccionada*/
   onClickDelete():void{
-
-    this.catService.deleteCategory(false,this.data.id).subscribe(response=>{
-      this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
-        content: "Categoría borrada con éxito",
-        type: "success"
-      }))
-
-      console.log(response)
-      setTimeout(()=>{
-        location.reload()
-      },3000)
-    },err=>{
-      console.error(err)
-    })
-    
+    if(this.objType === 'categoría'){
+      this.catService.deleteCategory(false,this.data.id).subscribe(response=>{
+        this.snackbar.openFromComponent(SnackbarcustomComponent,SnackStyleSwitcher({
+          content: "Categoría borrada con éxito",
+          type: "success"
+        }))
+  
+        console.log(response)
+        setTimeout(()=>{
+          location.reload()
+        },3000)
+      },err=>{
+        console.error(err)
+      })
+    }
   }
 }
