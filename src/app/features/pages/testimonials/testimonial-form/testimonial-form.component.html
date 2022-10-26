@@ -1,4 +1,6 @@
 <div class="contenedor">
+    <h1 *ngIf="create ; else elseBlock">Cree su testimonio</h1>
+    <ng-template #elseBlock> <h1> Edite su testimonio </h1> </ng-template>
     <div class="formulario">
         <form [formGroup]="formGroup" (ngSubmit)="createOrEdit(formGroup.value)">
 

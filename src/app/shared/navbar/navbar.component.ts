@@ -57,5 +57,7 @@ export class NavbarComponent implements OnInit {
   goRegister(){
     this.router.navigate(['register']);
   }
-
+  goBack(){
+    this.router.navigate(['backoffice']);
+  }
 }

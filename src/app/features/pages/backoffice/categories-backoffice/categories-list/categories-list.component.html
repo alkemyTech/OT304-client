@@ -2,7 +2,7 @@
 <app-head-title [title]="title" [alignTextCenter]="true"></app-head-title>
 <div class="container d-flex flex-column">
     <!--Botón para agregar una nueva categoría-->
-    <button mat-raised-button (click)="openSaveDialogForm()" class="my-4">
+    <button mat-raised-button (click)="openSaveDialogForm()" class="my-4" color="primary">
         <mat-icon>add</mat-icon> Crear categoría
     </button>
     <app-search-form (searchEmitter)="handleSearch($event)"></app-search-form>
@@ -10,37 +10,37 @@
     <table mat-table [dataSource]="categories" class="mat-elevation-z8 text-center">
         <!--Aqui se definen las columnas universalmente que pertenecerán a cada fila relacionada-->
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> Id </th>
-            <td mat-cell *matCellDef="let category"> {{category.id}} </td>
+            <th mat-header-cell *matHeaderCellDef class="text-center titulo identifier p-2"> Id </th>
+            <td mat-cell *matCellDef="let category" class="identifier text-center p-2"> {{category.id}} </td>
         </ng-container>
 
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> Nombre </th>
+            <th mat-header-cell *matHeaderCellDef class="text-center titulo"> Nombre </th>
             <td mat-cell *matCellDef="let category"> {{category.name}} </td>
         </ng-container>
 
         <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> Descripción </th>
+            <th mat-header-cell *matHeaderCellDef class="text-center titulo"> Descripción </th>
             <td mat-cell *matCellDef="let category" [innerHtml]="category.description"></td>
         </ng-container>
 
         <ng-container matColumnDef="image">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> Imágen </th>
+            <th mat-header-cell *matHeaderCellDef class="text-center titulo"> Imágen </th>
             <td mat-cell *matCellDef="let category">
                 <!--Boton que abre un dialogo para visualizar la imagen-->
-                <button mat-icon-button (click)="openImageDialog(category.image, category.name)">
+                <button mat-icon-button (click)="openImageDialog(category.image, category.name)" color="accent">
                     <mat-icon>image</mat-icon>
                 </button> 
             </td>
         </ng-container>
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> Acciones </th>
+            <th mat-header-cell *matHeaderCellDef class="text-center titulo"> Acciones </th>
             <!--Botones que abren dialogos para editar y eliminar categorias-->
             <td mat-cell *matCellDef="let category">
-                <button mat-icon-button (click)="openEditDialogForm(category.id)">
+                <button mat-icon-button (click)="openEditDialogForm(category.id)" color="primary">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button (click)="openDeleteDialogForm(category.id)">
+                <button mat-icon-button (click)="openDeleteDialogForm(category.id)" color="warn">
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>

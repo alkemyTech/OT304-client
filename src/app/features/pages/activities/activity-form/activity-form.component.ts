@@ -7,7 +7,7 @@ import { NewsContactsService } from 'src/app/core/services/news-contacts.service
   styleUrls: ['./activity-form.component.scss']
 })
 export class ActivityFormComponent implements OnInit {
-  title = 'base-ong-angular-client';
+  title = 'Somos Más | ONG';
 
   constructor(private contactService:NewsContactsService) { 
     // this.contactService.getContacts(true).subscribe((response)=>{
