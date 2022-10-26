@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -7,9 +7,12 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/core/lib/interfaces/entity.interfaces';
 
 import {MatPaginator} from '@angular/material/paginator';
-import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import {  deleteUser,loadUsers } from 'src/app/shared/state/actions/users.actions';
 import { selectLoading, selectUser} from 'src/app/shared/state/selectors/users.selectors';
+
+import { DialogUserFormComponent } from './dialog-user-form/dialog-user-form.component';
+
+
 export interface PeriodicElement {
   n0:string;
   name: string;
@@ -29,11 +32,12 @@ export class UsersBackofficeComponent implements OnInit {
   users$:Observable<any>=new Observable();
   row!:User[];
   oneUser!:any[]
-  user!:User;
+  //user!:User;
 
   pageIndex = 0;
   pageSize = 10;
   constructor(
+    @Inject(User) public user:User,
     private router: Router,
     private store:Store<any>,
     public dialog: MatDialog,
@@ -74,9 +78,36 @@ export class UsersBackofficeComponent implements OnInit {
     })
 
   }
+//************* */
 
+getOne(id: number): User {
+  let user: Array<User>;
+  user = this.dataSource.filteredData.filter((user) => user.id === id);
+  this.user.setIdUser= user[0].id;
+  this.user.setName = user[0].name;
+  this.user.setEmail = user[0].email;
+  this.user.setPassword = user[0].password;
+  this.user.setAddress = user[0].address;
+  this.user.setProfileImage=user[0].profile_image
+  
+  return this.user;
+}
 
+  openEditDialogForm(id: number): void {
+    console.log(id)
+    let user: any = {
+      user: this.getOne(id),
+      title: "Editar Usuario No. " + id,
+      type: "edit",
+    };
+    this.dialog.open(DialogUserFormComponent, {
+      width: "600px",
+      data: user,
+    });
+  }
+  //************** */
   edit(id:string):void{
+    console.log(id)
     this.router.navigate(['backoffice/users/edit',id]);
   }
   create():void{
@@ -84,6 +115,19 @@ export class UsersBackofficeComponent implements OnInit {
     this.router.navigate(['backoffice/users/',this.newUser])
   }
   deleteUser(i:number):void{
+  let id=i.toString();
+  let userDelete:any={
+    title:"Borrar Usuario",
+    type:"before-deleted",
+    id
+  };
+  this.dialog.open(DialogUserFormComponent,{
+    width: "600px",
+    height:"200px",
+    data: userDelete,
+  })
+
+    /*
     const realIndex = i + this.pageIndex * this.pageSize;
     console.log(realIndex);
     console.log(i)
@@ -110,7 +154,7 @@ export class UsersBackofficeComponent implements OnInit {
             this.updateTable();
         }
       })
-   
+   */
   }
 
 

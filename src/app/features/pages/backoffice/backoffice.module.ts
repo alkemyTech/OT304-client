@@ -17,13 +17,18 @@ import { SearchFormComponent } from './shared-backoffice/search-form/search-form
 import { MaterialModule } from 'src/app/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { Category } from 'src/app/core/lib';
-import { DialogFormComponent } from './shared-backoffice/dialog-form/dialog-form.component';
 import { MainCategoriesComponent } from './categories-backoffice/main-categories/main-categories.component';
 import { CategoriesFormComponent } from './categories-backoffice/categories-form/categories-form.component';
 import { CategoriesListComponent } from './categories-backoffice/categories-list/categories-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormUsuariosComponent } from './users-backoffice/form-usuarios/form-usuarios.component';
+
+import{DialogFormComponent}from './shared-backoffice/dialog-form/dialog-form.component';
+import { DialogUserFormComponent } from './users-backoffice/dialog-user-form/dialog-user-form.component'
+
+
 
 
 @NgModule({
@@ -38,6 +43,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CategoriesFormComponent,
     CategoriesListComponent,
     DialogFormComponent,
+    DialogFormComponent,
+    FormUsuariosComponent,
+    DialogUserFormComponent,
+    
   ],
   entryComponents:[
     DialogFormComponent
@@ -51,7 +60,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     los que se requieran, solo se importa y asi se evita la redundancia de codigo*/
     MaterialModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    
   ],
   providers:[
     Category,
