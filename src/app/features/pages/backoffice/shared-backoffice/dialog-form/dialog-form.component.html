@@ -7,6 +7,9 @@
     <ng-template [ngIf]="data.type === 'edit'||data.type === 'save'||data.type ===''">
         <app-categories-form></app-categories-form>
     </ng-template>
+    <ng-template [ngIf]="data.type === 'edit-testimonial'||data.type === 'save-testimonial'">
+        <app-testimonial-form></app-testimonial-form>
+    </ng-template>
     <!--Dialogo para confirmacion de eliminacion de la categoria seleccionada-->
     <ng-template [ngIf]="data.type === 'before-deleted'">
         <div class="container d-flex flex-column align-items-center">

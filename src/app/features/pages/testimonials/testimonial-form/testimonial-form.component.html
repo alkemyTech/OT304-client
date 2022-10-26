@@ -1,12 +1,13 @@
 <div class="contenedor">
-    
     <h1 *ngIf="create ; else elseBlock">Cree su testimonio</h1>
     <ng-template #elseBlock> <h1> Edite su testimonio </h1> </ng-template>
     <div class="formulario">
-        <form [formGroup]="formGroup" (ngSubmit)="createOrEdit()">
+        <form [formGroup]="formGroup" (ngSubmit)="createOrEdit(formGroup.value)">
 
-            <label for="name">Su nombre:</label>
-            <input type="text" formControlName="name"  name="name"/>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label class="w-100">Su nombre</mat-label>
+                <input matNativeControl type="text" formControlName="name" class="w-100"/>
+            </mat-form-field>
 
             <div class="error" *ngIf="f['name'].touched">
                 <div class="error" *ngIf="f['name'].errors?.['minlength']">El nombre debe tener al menos 4 caracteres.</div>
@@ -19,16 +20,23 @@
             <div class="error" *ngIf="f['description'].touched">
                 <div *ngIf="f['description'].errors?.['required']">El contenido es requerido.</div>
             </div>
-
-            <label for="image">Foto suya:</label>
-            <input type="file" formControlName="image"  name="image" (change)="fileOnChange($event)" /> 
+            <div class="mb-4">
+                <label for="image">Foto suya:</label>
+                <input type="file" formControlName="image"  name="image" (change)="orgService.putImg($event)" id="formFile"/> 
+                <div class="container my-2">
+                    <a>
+                        <img src="{{orgService.img}}" class="img-rounded" id="editImage" alt="" width="300" height="250">
+                    </a>
+                </div>
+            </div>
+            
 
             <div class="error" *ngIf="f['image'].touched">
                 <div *ngIf="f['image'].errors?.['required']">La imagen es obligatoria.</div>
             </div>
         
 
-            <button *ngIf="create; else editBlock" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" type="submit">Crear</button>
+            <button mat-raised-button *ngIf="create; else editBlock" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" type="submit">Crear</button>
             <ng-template #editBlock>
 
                 <button type="submit" [ngClass]="{'btnError' : formGroup.invalid}" [disabled]="formGroup.invalid" >Editar</button>

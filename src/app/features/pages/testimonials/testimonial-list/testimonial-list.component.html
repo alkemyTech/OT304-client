@@ -1,11 +1,11 @@
 <app-navbar *ngIf="!limiteTestimonio"></app-navbar>
 <h1 *ngIf="!limiteTestimonio">Testimonios</h1>
 <div  *ngIf="!limiteTestimonio" class="botones">
-    <button class="agregar"  *ngIf="!limiteTestimonio" (click)="agregar()">¡Agregar Testimonio!</button>
+    <button class="agregar"  *ngIf="!limiteTestimonio" (click)="openCreateTestimonialForm()">¡Agregar Testimonio!</button>
     <button class="home" *ngIf="!limiteTestimonio" (click)="home()">Ir al inicio</button>
 </div>
 <div class="testimonial">
-    <div class="cards" *ngFor="let test of testimonio">
+    <div class="cards" *ngFor="let test of testimonios">
         <img src="{{test.image}}" alt="{{test.name}}">
         <div class="description">
             <h5>{{test.name}}</h5>

@@ -1,13 +1,27 @@
-
-<div class="news"*ngFor="let news of news">
+<!-- 
+<div class="news">
     <div class="cards">
         <div class="image">
             <img src="{{news.image}}" alt="{{news.image}}">
         </div>
         <div class="content">
-            <h4>{{news.name}}</h4>
-            <p [innerHtml]="news.content"></p>
-            <button (click)="irNew(news.id)"> Ver Novedad</button>
+            
         </div>
     </div>
-</div>
+</div> -->
+
+<mat-card class="example-card card" *ngFor="let news of news">
+    <!--Encabezado-->
+    <mat-card-title-group>
+        <mat-card-title>{{news.name}}</mat-card-title>
+        <mat-card-subtitle>Novedad No. {{news.id}}</mat-card-subtitle>
+        <img mat-card-lg-image src="{{news.image}}">
+    </mat-card-title-group>
+    <!--Contenido-->
+    <mat-card-content [innerHtml]="news.content">
+    </mat-card-content>
+    <!--Acciones-->
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="irNew(news.id)"> Ver Novedad</button>
+    </mat-card-actions>
+</mat-card>
