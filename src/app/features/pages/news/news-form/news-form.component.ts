@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 import { environment } from 'src/environments/environment';
 
@@ -32,7 +33,7 @@ export class NewsFormComponent implements OnInit {
   category : any;
   show : boolean = false;
 
-  constructor(private fb : FormBuilder, private api : HttpService) {
+  constructor(private fb : FormBuilder, private api : HttpService, private router:Router) {
 
     this.analizeObject();
     this.getCategories();
@@ -73,7 +74,9 @@ export class NewsFormComponent implements OnInit {
       })
       .subscribe((res : any)=>{
         console.log('post:', res);
-        
+        setTimeout(()=>{
+          this.router.navigate(["novedades"]);
+        },3000)
       });
   
     }
@@ -87,6 +90,9 @@ export class NewsFormComponent implements OnInit {
       })
       .subscribe((res : any )=>{
         console.log('put: ', res)
+        setTimeout(()=>{
+          this.router.navigate(["novedades"]);
+        },3000)
       });
       
     }
